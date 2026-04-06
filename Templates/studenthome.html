@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scammer Reports</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+                        url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 100vh;
+            color: #fff;
+        }
+
+        /* Navigation */
+        nav {
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            font-size: 24px;
+        }
+
+        .logo-text h2 {
+            font-size: 22px;
+            font-weight: 700;
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+        }
+
+        .logo-text p {
+            font-size: 12px;
+            opacity: 0.9;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            transition: opacity 0.3s;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+
+        .login-btn-nav {
+            background: rgba(255, 255, 255, 0.25);
+            padding: 10px 25px;
+            border-radius: 25px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(5px);
+        }
+
+        .login-btn-nav:hover {
+            background: rgba(255, 255, 255, 0.35);
+        }
+
+        /* Hero Section */
+        .hero {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 100px 30px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 56px;
+            font-weight: 800;
+            margin-bottom: 25px;
+            text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.7);
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 40px;
+            opacity: 0.95;
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .ai-badge-hero {
+            background: rgba(255, 255, 255, 0.25);
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 700;
+            display: inline-block;
+            margin-bottom: 30px;
+            letter-spacing: 2px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(5px);
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 50px;
+        }
+
+        .btn {
+            padding: 16px 40px;
+            border-radius: 30px;
+            font-size: 16px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: rgba(255, 255, 255, 0.3);
+            color: #fff;
+            border: 2px solid rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(5px);
+        }
+
+        .btn-primary:hover {
+            background: rgba(255, 255, 255, 0.4);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #fff;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-3px);
+        }
+
+        /* Features Section */
+        .features {
+            max-width: 1200px;
+            margin: 80px auto;
+            padding: 0 30px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(15px);
+            padding: 40px 30px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 25px;
+            background: rgba(255, 255, 255, 0.25);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            font-size: 35px;
+        }
+
+        .feature-card h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+        }
+
+        .feature-card p {
+            font-size: 15px;
+            opacity: 0.9;
+            line-height: 1.6;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Stats Section */
+        .stats {
+            max-width: 1200px;
+            margin: 80px auto;
+            padding: 60px 30px;
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            text-align: center;
+        }
+
+        .stat-item h4 {
+            font-size: 48px;
+            font-weight: 800;
+            margin-bottom: 10px;
+            text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.6);
+        }
+
+        .stat-item p {
+            font-size: 16px;
+            opacity: 0.9;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Alerts Section */
+        .alerts-section {
+            max-width: 1200px;
+            margin: 80px auto;
+            padding: 0 30px;
+        }
+
+        .alerts-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .alerts-header h2 {
+            font-size: 42px;
+            font-weight: 800;
+            text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.7);
+            margin-bottom: 15px;
+        }
+
+        .alerts-header p {
+            font-size: 18px;
+            opacity: 0.9;
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
+        }
+
+        .alerts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+        }
+
+        .alert-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(15px);
+            padding: 30px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .alert-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .alert-severity {
+            display: inline-block;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+
+        .alert-critical {
+            background: rgba(239, 68, 68, 0.3);
+            border: 1px solid rgba(239, 68, 68, 0.5);
+        }
+
+        .alert-warning {
+            background: rgba(250, 204, 21, 0.3);
+            border: 1px solid rgba(250, 204, 21, 0.5);
+        }
+
+        .alert-info {
+            background: rgba(59, 130, 246, 0.3);
+            border: 1px solid rgba(59, 130, 246, 0.5);
+        }
+
+        .alert-card h3 {
+            font-size: 20px;
+            margin-bottom: 12px;
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+        }
+
+        .alert-card p {
+            font-size: 15px;
+            opacity: 0.9;
+            line-height: 1.6;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+            margin-bottom: 15px;
+        }
+
+        .alert-time {
+            font-size: 13px;
+            opacity: 0.7;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 30px;
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 80px;
+        }
+
+        footer p {
+            opacity: 0.8;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .nav-links {
+                gap: 15px;
+                font-size: 14px;
+            }
+
+            .alerts-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">
+                <div class="logo-icon">
+                    🤖
+                </div>
+                <div class="logo-text">
+                    <h2>Scammer Reports</h2>
+                    <p>Academic Protection Platform</p>
+
+                </div>
+            </div>
+            <div class="nav-links">
+                <a href="/myapp/studenthome/">Home</a>
+                <a href="/myapp/view_profile/">Profile</a>
+                <a href="/myapp/view_shared_link/">Share Link</a>
+                <a href="/myapp/view_others_sharedlink/">Others Share Link</a>
+                <a href="/myapp/student_view_studymaterial/">Study Material</a>
+                <a href="/myapp/student_view_staff/">Staff</a>
+                <a href="/myapp/student_change_password/">Change Password</a>
+{#                <a href="/myapp/stud_ask_questions/">Chatbot</a>#}
+                <a href="/myapp/logout/" class="login-btn-nav">Log Out</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="ai-badge-hero">🎓 AI-POWERED ACADEMIC EXCELLENCE</div>
+        <h1>Learn Smarter, Stay Protected</h1>
+        <p>Revolutionary AI-driven platform combining personalized academic support with advanced scam detection to keep students safe and successful.</p>
+        <div class="cta-buttons">
+            <a href="#ai-tutor" class="btn btn-primary">View Reports</a>
+            <a href="#scam-reports" class="btn btn-secondary">Report Scam</a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="feature-card">
+            <div class="feature-icon">
+                🤖
+            </div>
+            <h3>AI Study Assistant</h3>
+            <p>24/7 personalized tutoring powered by advanced AI. Get instant help with homework, assignments, and exam preparation.</p>
+        </div>
+
+        <div class="feature-card">
+            <div class="feature-icon">
+                🔍
+            </div>
+            <h3>Scam Detection</h3>
+            <p>Real-time AI-powered detection of phishing emails, fake scholarships, and fraudulent job offers targeting students.</p>
+        </div>
+
+        <div class="feature-card">
+            <div class="feature-icon">
+                📚
+            </div>
+            <h3>Smart Resources</h3>
+            <p>AI-curated study materials, verified textbooks, and academic resources tailored to your learning needs.</p>
+        </div>
+
+        <div class="feature-card">
+            <div class="feature-icon">
+                🛡️
+            </div>
+            <h3>Secure Reporting</h3>
+            <p>Anonymous and encrypted scam reporting system to protect your identity while helping the community.</p>
+        </div>
+
+        <div class="feature-card">
+            <div class="feature-icon">
+                📊
+            </div>
+            <h3>Progress Tracking</h3>
+            <p>Detailed analytics of your learning journey with AI-generated insights and personalized recommendations.</p>
+        </div>
+
+        <div class="feature-card">
+            <div class="feature-icon">
+                👥
+            </div>
+            <h3>Community Alerts</h3>
+            <p>Instant notifications about new scam threats and safety alerts across the entire student community.</p>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <h4>24,567</h4>
+                <p>Active Students</p>
+            </div>
+            <div class="stat-item">
+                <h4>156.2K</h4>
+                <p>AI Conversations</p>
+            </div>
+            <div class="stat-item">
+                <h4>3,847</h4>
+                <p>Scams Blocked</p>
+            </div>
+            <div class="stat-item">
+                <h4>98.7%</h4>
+                <p>Satisfaction Rate</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recent Scam Alerts Section -->
+    <section class="alerts-section">
+        <div class="alerts-header">
+            <h2>Recent Scam Alerts</h2>
+            <p>Stay informed about the latest threats targeting students</p>
+        </div>
+        <div class="alerts-grid">
+            <div class="alert-card">
+                <span class="alert-severity alert-critical">⚠️ CRITICAL</span>
+                <h3>Fake Scholarship Phishing Campaign</h3>
+                <p>Multiple students reported emails claiming to offer $10,000 scholarships with urgent deadlines. Links lead to credential harvesting sites. Do NOT click any links or provide personal information.</p>
+                <div class="alert-time">🕐 2 hours ago • 847 students alerted</div>
+            </div>
+
+            <div class="alert-card">
+                <span class="alert-severity alert-warning">⚡ WARNING</span>
+                <h3>Fake Textbook Marketplace Scam</h3>
+                <p>Suspicious social media accounts offering textbooks at 90% discount. Several students reported paying but never receiving books. Verify seller identity before transactions.</p>
+                <div class="alert-time">🕐 6 hours ago • 562 students alerted</div>
+            </div>
+
+            <div class="alert-card">
+                <span class="alert-severity alert-info">ℹ️ INFO</span>
+                <h3>Tutoring Service Verification</h3>
+                <p>Before hiring online tutors, verify their credentials through our AI verification system. Recent uptick in unqualified tutors charging premium rates.</p>
+                <div class="alert-time">🕐 1 day ago • 1.2K students alerted</div>
+            </div>
+
+            <div class="alert-card">
+                <span class="alert-severity alert-critical">⚠️ CRITICAL</span>
+                <h3>Apartment Rental Scam Alert</h3>
+                <p>Fake off-campus housing listings requesting deposits via wire transfer. Properties don't exist or are already rented. Always verify with official university housing or visit in person.</p>
+                <div class="alert-time">🕐 3 days ago • 1.5K students alerted</div>
+            </div>
+
+            <div class="alert-card">
+                <span class="alert-severity alert-warning">⚡ WARNING</span>
+                <h3>Internship Offer Email Scam</h3>
+                <p>Emails claiming to offer high-paying remote internships requesting personal information and upfront fees for "training materials." No legitimate employer charges for hiring.</p>
+                <div class="alert-time">🕐 5 days ago • 923 students alerted</div>
+            </div>
+
+            <div class="alert-card">
+                <span class="alert-severity alert-info">ℹ️ INFO</span>
+                <h3>Student Loan Forgiveness Scam</h3>
+                <p>Calls and emails offering immediate student loan forgiveness for a fee. Official loan forgiveness programs never require upfront payment. Report suspicious contacts immediately.</p>
+                <div class="alert-time">🕐 1 week ago • 2.1K students alerted</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 AcademiGuard AI - Student Protection & Academic Support Platform. All rights reserved. | Powered by Advanced AI</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe feature and alert cards
+        document.querySelectorAll('.feature-card, .alert-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'all 0.6s ease';
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>

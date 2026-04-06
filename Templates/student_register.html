@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Student Registration</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+html, body {
+    margin: 0;
+    height: 100%;
+}
+
+body {
+    background: #0f172a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #e5e7eb;
+}
+
+/* MAIN CARD */
+.container {
+    width: 920px;
+    height: 580px;   /* Slightly taller for breathing space */
+    display: flex;
+    background: #020617;
+    border-radius: 16px;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.75);
+    overflow: hidden;
+}
+
+/* LEFT IMAGE PANEL */
+.image-box {
+    width: 35%;
+    border-right: 1px solid #1e293b;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-box h2 {
+    color: #60a5fa;
+    margin-bottom: 22px;
+    letter-spacing: 0.5px;
+}
+
+.image-preview {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    border: 2px dashed #334155;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #64748b;
+    font-size: 14px;
+    margin-bottom: 18px;
+    background-size: cover;
+    background-position: center;
+}
+
+.image-box input {
+    font-size: 13px;
+    color: #cbd5f5;
+}
+
+/* RIGHT FORM PANEL */
+.form-box {
+    width: 65%;
+    padding: 35px 45px;
+}
+
+.form-box h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #60a5fa;
+    letter-spacing: 0.5px;
+}
+
+/* FORM GRID */
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px 24px;  /* More space between fields */
+}
+
+label {
+    font-size: 12px;
+    color: #cbd5f5;
+    margin-bottom: 6px;
+    display: block;
+}
+
+input, select {
+    width: 100%;
+    padding: 11px;
+    background: #020617;
+    border: 1px solid #1e293b;
+    border-radius: 8px;
+    color: #e5e7eb;
+    font-size: 13px;
+}
+
+.gender {
+    display: flex;
+    gap: 18px;
+    font-size: 13px;
+    margin-top: 4px;
+}
+
+/* FULL WIDTH */
+.full {
+    grid-column: span 2;
+}
+
+/* BUTTON */
+button {
+    width: 100%;
+    padding: 14px;
+    background: #2563eb;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button:hover {
+    background: #1d4ed8;
+}
+</style>
+</head>
+
+<body>
+        <form action="/myapp/student_register_post/" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+<div class="container">
+
+    <!-- IMAGE SIDE -->
+    <div class="image-box">
+        <h2>Profile Image</h2>
+        <div class="image-preview" id="imagePreview">Upload Image</div>
+        <input type="file" id="imageInput" name="image" accept="image/*">
+    </div>
+
+    <!-- FORM SIDE -->
+    <div class="form-box">
+        <h2>Create Account</h2>
+
+
+
+            <div class="form-grid">
+
+                <div>
+                    <label>Name</label>
+                    <input type="text" name="name" required>
+                </div>
+
+                <div>
+                    <label>Phone</label>
+                    <input type="tel" name="phone" required>
+                </div>
+
+                <div>
+                    <label>Email</label>
+                    <input type="email" name="email" required>
+                </div>
+
+                <div>
+                    <label>Course</label>
+                    <select name="course" required>
+                        <option value="">Select</option>
+                        {% for i in data %}
+                        <option value="{{ i.id }}">{{ i.course }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div>
+                    <label>Semester</label>
+                    <select name="sem" required>
+                        <option value="">Select</option>
+                        <option>1</option><option>2</option><option>3</option><option>4</option>
+                        <option>5</option><option>6</option><option>7</option><option>8</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label>Gender</label>
+                    <div class="gender">
+                        <label><input type="radio" name="gender" value="Male" required> Male</label>
+                        <label><input type="radio" name="gender" value="Female"> Female</label>
+                        <label><input type="radio" name="gender" value="Other"> Other</label>
+                    </div>
+                </div>
+
+                <div>
+                    <label>Username</label>
+                    <input type="text" name="username" required>
+                </div>
+
+                <div>
+                    <label>Password</label>
+                    <input type="password" name="password" required>
+                </div>
+
+                <div class="full">
+                    <button type="submit">Create Account</button>
+                </div>
+
+            </div>
+        </form>
+    </div>
+
+</div>
+
+<script>
+const imageInput = document.getElementById('imageInput');
+const imagePreview = document.getElementById('imagePreview');
+
+imageInput.addEventListener('change', () => {
+    const file = imageInput.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = e => {
+        imagePreview.style.backgroundImage = `url(${e.target.result})`;
+        imagePreview.textContent = '';
+    };
+    reader.readAsDataURL(file);
+});
+</script>
+
+</body>
+</html>

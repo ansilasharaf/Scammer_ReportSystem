@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Edit Profile</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+html, body {
+    margin: 0;
+    height: 100%;
+}
+
+/* Page center wrapper */
+.page-wrapper {
+    min-height: 100vh;
+    background: #0f172a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Main container */
+.container {
+    width: 900px;
+    max-width: 100%;
+    background: #020617;
+    display: flex;
+    border-radius: 14px;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.7);
+    overflow: hidden;
+}
+
+/* Form wrapper */
+.form-wrapper {
+    display: flex;
+    width: 100%;
+}
+
+/* Image section */
+.image-section {
+    width: 35%;
+    border-right: 1px solid #1e293b;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+}
+
+.image-section h2 {
+    color: #60a5fa;
+    margin-bottom: 15px;
+}
+
+.profile-img {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    border: 2px solid #334155;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+/* Form section */
+.form-section {
+    width: 65%;
+    padding: 25px 35px;
+}
+
+.form-section h2 {
+    text-align: center;
+    color: #60a5fa;
+    margin-bottom: 15px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px 15px;
+}
+
+.full {
+    grid-column: span 2;
+}
+
+label {
+    font-size: 12px;
+    color: #cbd5f5;
+}
+
+input, select {
+    width: 100%;
+    padding: 9px;
+    background: #020617;
+    border: 1px solid #1e293b;
+    border-radius: 6px;
+    color: #e5e7eb;
+    font-size: 13px;
+}
+
+input:focus, select:focus {
+    outline: none;
+    border-color: #3b82f6;
+}
+
+.gender {
+    display: flex;
+    gap: 18px;
+    margin-top: 6px;
+}
+
+/* Button */
+button {
+    grid-column: span 2;
+    margin-top: 15px;
+    padding: 12px;
+    background: #2563eb;
+    border: none;
+    border-radius: 6px;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #1d4ed8;
+}
+
+/* Mobile view */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .image-section,
+    .form-section {
+        width: 100%;
+    }
+
+    .image-section {
+        border-right: none;
+        border-bottom: 1px solid #1e293b;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="page-wrapper">
+
+    <div class="container">
+
+        <form action="/myapp/edit_profile_post/"
+              method="post"
+              enctype="multipart/form-data"
+              class="form-wrapper">
+        {% csrf_token %}
+
+            <!-- Image Section -->
+            <div class="image-section">
+                <h2>Profile Photo</h2>
+                <img src="{{ data.image.url }}" class="profile-img">
+                <input type="file" name="image" accept="image/*">
+            </div>
+
+            <!-- Form Section -->
+            <div class="form-section">
+                <h2>Edit Profile</h2>
+
+                <div class="grid">
+
+                    <div class="full">
+                        <label>Name</label>
+                        <input type="text" name="name" value="{{ data.name }}">
+                    </div>
+
+                    <div>
+                        <label>Email</label>
+                        <input type="email" name="email" value="{{ data.email }}">
+                    </div>
+
+                    <div>
+                        <label>Phone</label>
+                        <input type="tel" name="phone" value="{{ data.phone }}">
+                    </div>
+
+                    <div>
+                        <label>Course</label>
+                        <select name="course" required>
+                            <option value="">Select</option>
+                            {% for i in data2 %}
+                            <option value="{{ i.id }}" {% if data.COURSE_id == i.id %}selected{% endif %}>
+                                {{ i.course }}
+                            </option>
+                            {% endfor %}
+                        </select>
+                    </div>
+
+                    <div>
+                        <label>Semester</label>
+                        <select name="sem" required>
+                            <option hidden>{{ data.sem }}</option>
+                            <option>1</option><option>2</option><option>3</option><option>4</option>
+                            <option>5</option><option>6</option><option>7</option><option>8</option>
+                        </select>
+                    </div>
+
+                    <div class="full">
+                        <label>Gender</label>
+                        <div class="gender">
+                            <label><input type="radio" name="gender" value="Male" {% if data.gender == 'Male' %}checked{% endif %}> Male</label>
+                            <label><input type="radio" name="gender" value="Female" {% if data.gender == 'Female' %}checked{% endif %}> Female</label>
+                            <label><input type="radio" name="gender" value="Other" {% if data.gender == 'Other' %}checked{% endif %}> Other</label>
+                        </div>
+                    </div>
+
+                    <button type="submit">Update</button>
+
+                </div>
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+</body>
+</html>

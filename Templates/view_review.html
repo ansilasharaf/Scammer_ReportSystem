@@ -1,0 +1,1524 @@
+{#<!DOCTYPE html>#}
+{#<html lang="en">#}
+{#<head>#}
+{#    <meta charset="UTF-8">#}
+{#    <meta name="viewport" content="width=device-width, initial-scale=1.0">#}
+{#    <title>Reviews Dashboard | Dark</title>#}
+{#    <style>#}
+{#        /* Strict No-Scroll & Dark Base */#}
+{#        * { box-sizing: border-box; }#}
+{#        html, body {#}
+{#            height: 100%;#}
+{#            margin: 0;#}
+{#            overflow: hidden;#}
+{#            font-family: 'Inter', -apple-system, sans-serif;#}
+{#            background-color: #0b0f19;#}
+{#            color: #e2e8f0;#}
+{#        }#}
+{##}
+{#        body {#}
+{#            display: flex;#}
+{#            justify-content: center;#}
+{#            align-items: center;#}
+{#            background: radial-gradient(circle at 0% 0%, #161e2e 0%, #0b0f19 100%);#}
+{#        }#}
+{##}
+{#        /* Container Card */#}
+{#        .card {#}
+{#            width: 95%;#}
+{#            max-width: 1000px;#}
+{#            height: 560px;#}
+{#            background: #111827;#}
+{#            border-radius: 20px;#}
+{#            display: flex;#}
+{#            flex-direction: column;#}
+{#            overflow: hidden;#}
+{#            border: 1px solid #1f2937;#}
+{#            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);#}
+{#        }#}
+{##}
+{#        /* Header Area */#}
+{#        .header {#}
+{#            padding: 30px 40px;#}
+{#            display: flex;#}
+{#            justify-content: space-between;#}
+{#            align-items: center;#}
+{#            border-bottom: 1px solid #1f2937;#}
+{#        }#}
+{##}
+{#        .header-text h2 { margin: 0; font-size: 24px; color: #fff; letter-spacing: -0.5px; }#}
+{#        .header-text p { margin: 5px 0 0 0; font-size: 13px; color: #9ca3af; }#}
+{##}
+{#        .search-wrap { position: relative; }#}
+{#        .search-wrap input {#}
+{#            background: #0b0f19;#}
+{#            border: 1px solid #374151;#}
+{#            border-radius: 8px;#}
+{#            padding: 10px 15px;#}
+{#            color: white;#}
+{#            width: 280px;#}
+{#            outline: none;#}
+{#            font-size: 14px;#}
+{#        }#}
+{##}
+{#        .search-wrap input:focus { border-color: #3b82f6; }#}
+{##}
+{#        /* Table Structure */#}
+{#        .table-area {#}
+{#            flex: 1;#}
+{#            padding: 20px 40px;#}
+{#            overflow-y: auto;#}
+{#        }#}
+{##}
+{#        /* Custom Scrollbar */#}
+{#        .table-area::-webkit-scrollbar { width: 5px; }#}
+{#        .table-area::-webkit-scrollbar-thumb { background: #374151; border-radius: 10px; }#}
+{##}
+{#        table {#}
+{#            width: 100%;#}
+{#            border-collapse: collapse;#}
+{#            text-align: left;#}
+{#        }#}
+{##}
+{#        th {#}
+{#            padding: 15px 10px;#}
+{#            font-size: 11px;#}
+{#            text-transform: uppercase;#}
+{#            color: #6b7280;#}
+{#            letter-spacing: 1px;#}
+{#            border-bottom: 1px solid #1f2937;#}
+{#        }#}
+{##}
+{#        td {#}
+{#            padding: 20px 10px;#}
+{#            border-bottom: 1px solid #1f2937;#}
+{#            font-size: 14px;#}
+{#            vertical-align: middle;#}
+{#        }#}
+{##}
+{#        /* Empty State Styling */#}
+{#        .empty-row td {#}
+{#            text-align: center;#}
+{#            padding: 100px 0;#}
+{#            color: #4b5563;#}
+{#            font-style: italic;#}
+{#        }#}
+{##}
+{#        .rating-stars { color: #facc15; }#}
+{#        .student-highlight { color: #60a5fa; font-weight: 600; }#}
+{#        .date-dim { color: #6b7280; font-size: 13px; }#}
+{##}
+{#    </style>#}
+{#</head>#}
+{#<body>#}
+{##}
+{#    <div class="card">#}
+{#        <div class="header">#}
+{#            <div class="header-text">#}
+{#                <h2>View Reviews</h2>#}
+{#                <p>Monitor student feedback and experience ratings.</p>#}
+{#            </div>#}
+{#            <div class="search-wrap">#}
+{#                <input type="text" placeholder="Search records...">#}
+{#            </div>#}
+{#        </div>#}
+{##}
+{#        <div class="table-area">#}
+{#            <table>#}
+{#                <thead>#}
+{#                    <tr>#}
+{#                        <th style="width: 8%;">SI</th>#}
+{#                        <th style="width: 42%;">Review</th>#}
+{#                        <th style="width: 15%;">Rating</th>#}
+{#                        <th style="width: 15%;">Date</th>#}
+{#                        <th style="width: 20%;">Student</th>#}
+{#                    </tr>#}
+{#                </thead>#}
+{#                <tbody>#}
+{#                    <tr>#}
+{#                        <td></td>#}
+{#                        <td></td>#}
+{#                        <td class="rating-stars"></td>#}
+{#                        <td class="date-dim"></td>#}
+{#                        <td class="student-highlight"></td>#}
+{#                    </tr>#}
+{#                    </tbody>#}
+{#            </table>#}
+{#        </div>#}
+{#    </div>#}
+{##}
+{#</body>#}
+{#</html>#}
+{##}
+{##}
+{#<!DOCTYPE html>#}
+{#<html lang="en">#}
+{#<head>#}
+{#    <meta charset="UTF-8">#}
+{#    <meta name="viewport" content="width=device-width, initial-scale=1.0">#}
+{#    <title>Reviews Dashboard</title>#}
+{#    <style>#}
+{#        * { box-sizing: border-box; }#}
+{#        html, body {#}
+{#            height: 100%;#}
+{#            margin: 0;#}
+{#            overflow: hidden;#}
+{#            font-family: 'Inter', -apple-system, sans-serif;#}
+{#            background-color: #0b0f19;#}
+{#            color: #e2e8f0;#}
+{#        }#}
+{##}
+{#        body {#}
+{#            display: flex;#}
+{#            justify-content: center;#}
+{#            align-items: center;#}
+{#            background: radial-gradient(circle at 0% 0%, #161e2e 0%, #0b0f19 100%);#}
+{#        }#}
+{##}
+{#        /* ── Card ───────────────────────────────────────────────────────── */#}
+{#        .card {#}
+{#            width: 95%;#}
+{#            max-width: 1000px;#}
+{#            height: 560px;#}
+{#            background: #111827;#}
+{#            border-radius: 20px;#}
+{#            display: flex;#}
+{#            flex-direction: column;#}
+{#            overflow: hidden;#}
+{#            border: 1px solid #1f2937;#}
+{#            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);#}
+{#        }#}
+{##}
+{#        /* ── Header ─────────────────────────────────────────────────────── */#}
+{#        .header {#}
+{#            padding: 26px 36px;#}
+{#            display: flex;#}
+{#            justify-content: space-between;#}
+{#            align-items: center;#}
+{#            border-bottom: 1px solid #1f2937;#}
+{#            flex-shrink: 0;#}
+{#        }#}
+{##}
+{#        .header-left { display: flex; align-items: center; gap: 14px; }#}
+{##}
+{#        .header-icon {#}
+{#            width: 42px; height: 42px;#}
+{#            background: #1e1b4b;#}
+{#            border-radius: 11px;#}
+{#            border: 1px solid #3730a3;#}
+{#            display: flex; align-items: center; justify-content: center;#}
+{#        }#}
+{#        .header-icon svg { width: 20px; height: 20px; }#}
+{##}
+{#        .header-text h2 { margin: 0; font-size: 18px; font-weight: 700; color: #f9fafb; letter-spacing: -0.3px; }#}
+{#        .header-text p  { margin: 3px 0 0; font-size: 12px; color: #6b7280; }#}
+{##}
+{#        .header-right { display: flex; align-items: center; gap: 10px; }#}
+{##}
+{#        .badge {#}
+{#            padding: 4px 12px;#}
+{#            background: #1e1b4b;#}
+{#            border: 1px solid #3730a3;#}
+{#            border-radius: 20px;#}
+{#            font-size: 12px;#}
+{#            font-weight: 600;#}
+{#            color: #818cf8;#}
+{#        }#}
+{##}
+{#        .search-wrap input {#}
+{#            background: #0d1117;#}
+{#            border: 1px solid #374151;#}
+{#            border-radius: 9px;#}
+{#            padding: 9px 14px;#}
+{#            color: #e2e8f0;#}
+{#            width: 220px;#}
+{#            outline: none;#}
+{#            font-size: 13px;#}
+{#        }#}
+{#        .search-wrap input::placeholder { color: #4b5563; }#}
+{#        .search-wrap input:focus { border-color: #6366f1; }#}
+{##}
+{#        /* ── Table ──────────────────────────────────────────────────────── */#}
+{#        .table-area {#}
+{#            flex: 1;#}
+{#            padding: 0 36px 20px;#}
+{#            overflow-y: auto;#}
+{#        }#}
+{#        .table-area::-webkit-scrollbar { width: 4px; }#}
+{#        .table-area::-webkit-scrollbar-thumb { background: #2d3748; border-radius: 10px; }#}
+{##}
+{#        table { width: 100%; border-collapse: collapse; text-align: left; }#}
+{##}
+{#        th {#}
+{#            padding: 14px 10px;#}
+{#            font-size: 10px;#}
+{#            text-transform: uppercase;#}
+{#            color: #4b5563;#}
+{#            letter-spacing: 1px;#}
+{#            border-bottom: 1px solid #1f2937;#}
+{#            position: sticky; top: 0;#}
+{#            background: #111827;#}
+{#        }#}
+{##}
+{#        td {#}
+{#            padding: 16px 10px;#}
+{#            border-bottom: 1px solid #1a2235;#}
+{#            font-size: 13px;#}
+{#            vertical-align: middle;#}
+{#        }#}
+{##}
+{#        tbody tr { cursor: pointer; transition: background 0.15s; }#}
+{#        tbody tr:hover td { background: #161f30; }#}
+{##}
+{#        .student-cell { display: flex; align-items: center; gap: 10px; }#}
+{#        .avatar {#}
+{#            width: 34px; height: 34px; border-radius: 50%;#}
+{#            object-fit: cover;#}
+{#            background: #1e1b4b;#}
+{#            border: 1px solid #3730a3;#}
+{#            flex-shrink: 0;#}
+{#        }#}
+{#        .avatar-initials {#}
+{#            width: 34px; height: 34px; border-radius: 50%;#}
+{#            background: #1e1b4b;#}
+{#            border: 1px solid #3730a3;#}
+{#            display: flex; align-items: center; justify-content: center;#}
+{#            font-size: 12px; font-weight: 700; color: #818cf8;#}
+{#            flex-shrink: 0;#}
+{#        }#}
+{#        .student-name  { font-weight: 600; color: #93c5fd; font-size: 13px; }#}
+{#        .student-email { font-size: 11px; color: #4b5563; }#}
+{##}
+{#        .review-text {#}
+{#            color: #d1d5db;#}
+{#            max-width: 280px;#}
+{#            white-space: nowrap;#}
+{#            overflow: hidden;#}
+{#            text-overflow: ellipsis;#}
+{#        }#}
+{##}
+{#        .stars { color: #fbbf24; font-size: 14px; letter-spacing: 1px; }#}
+{#        .rating-num { font-size: 11px; color: #6b7280; margin-left: 4px; }#}
+{##}
+{#        .date-pill {#}
+{#            display: inline-block;#}
+{#            padding: 3px 10px;#}
+{#            background: #0d1117;#}
+{#            border: 1px solid #1f2937;#}
+{#            border-radius: 20px;#}
+{#            font-size: 11px;#}
+{#            color: #6b7280;#}
+{#        }#}
+{##}
+{#        /* ── Empty / Loading ────────────────────────────────────────────── */#}
+{#        .empty-cell {#}
+{#            text-align: center;#}
+{#            padding: 60px 0;#}
+{#            color: #374151;#}
+{#        }#}
+{#        .empty-cell .empty-icon { font-size: 36px; display: block; margin-bottom: 10px; opacity: 0.4; }#}
+{#        .empty-cell p { margin: 0; font-size: 14px; }#}
+{##}
+{#        .spinner {#}
+{#            width: 28px; height: 28px;#}
+{#            border: 3px solid #1f2937;#}
+{#            border-top-color: #6366f1;#}
+{#            border-radius: 50%;#}
+{#            animation: spin 0.8s linear infinite;#}
+{#            margin: 60px auto;#}
+{#            display: block;#}
+{#        }#}
+{#        @keyframes spin { to { transform: rotate(360deg); } }#}
+{##}
+{#        /* ── Modal overlay ──────────────────────────────────────────────── */#}
+{#        .modal-overlay {#}
+{#            display: none;#}
+{#            position: fixed; inset: 0;#}
+{#            background: rgba(0,0,0,0.65);#}
+{#            backdrop-filter: blur(4px);#}
+{#            z-index: 100;#}
+{#            align-items: center;#}
+{#            justify-content: center;#}
+{#        }#}
+{#        .modal-overlay.open { display: flex; }#}
+{##}
+{#        .modal {#}
+{#            background: #111827;#}
+{#            border: 1px solid #1f2937;#}
+{#            border-radius: 20px;#}
+{#            width: 90%;#}
+{#            max-width: 480px;#}
+{#            padding: 0;#}
+{#            overflow: hidden;#}
+{#            animation: pop 0.2s ease-out;#}
+{#        }#}
+{#        @keyframes pop {#}
+{#            from { opacity: 0; transform: scale(0.95) translateY(10px); }#}
+{#            to   { opacity: 1; transform: scale(1) translateY(0); }#}
+{#        }#}
+{##}
+{#        .modal-header {#}
+{#            padding: 22px 24px 18px;#}
+{#            border-bottom: 1px solid #1f2937;#}
+{#            display: flex;#}
+{#            align-items: center;#}
+{#            justify-content: space-between;#}
+{#        }#}
+{#        .modal-header-left { display: flex; align-items: center; gap: 12px; }#}
+{#        .modal-avatar-lg {#}
+{#            width: 48px; height: 48px; border-radius: 50%;#}
+{#            object-fit: cover;#}
+{#            background: #1e1b4b; border: 1px solid #3730a3;#}
+{#        }#}
+{#        .modal-avatar-initials-lg {#}
+{#            width: 48px; height: 48px; border-radius: 50%;#}
+{#            background: #1e1b4b; border: 1px solid #3730a3;#}
+{#            display: flex; align-items: center; justify-content: center;#}
+{#            font-size: 16px; font-weight: 700; color: #818cf8;#}
+{#        }#}
+{#        .modal-student-name  { font-size: 15px; font-weight: 700; color: #f9fafb; }#}
+{#        .modal-student-email { font-size: 12px; color: #6b7280; margin-top: 2px; }#}
+{##}
+{#        .modal-close {#}
+{#            width: 32px; height: 32px;#}
+{#            background: #1f2937; border: 1px solid #374151;#}
+{#            border-radius: 8px; cursor: pointer;#}
+{#            display: flex; align-items: center; justify-content: center;#}
+{#            color: #6b7280; font-size: 16px; line-height: 1;#}
+{#            transition: background 0.15s;#}
+{#        }#}
+{#        .modal-close:hover { background: #374151; color: #e2e8f0; }#}
+{##}
+{#        .modal-body { padding: 22px 24px 24px; }#}
+{##}
+{#        .modal-section-label {#}
+{#            font-size: 10px; font-weight: 600;#}
+{#            letter-spacing: 0.9px; text-transform: uppercase;#}
+{#            color: #4b5563; margin-bottom: 8px;#}
+{#        }#}
+{##}
+{#        .modal-review-text {#}
+{#            font-size: 14px; color: #d1d5db;#}
+{#            line-height: 1.7;#}
+{#            background: #0d1117;#}
+{#            border: 1px solid #1f2937;#}
+{#            border-radius: 10px;#}
+{#            padding: 14px 16px;#}
+{#            margin-bottom: 18px;#}
+{#        }#}
+{##}
+{#        .modal-meta-row {#}
+{#            display: flex; gap: 10px; margin-bottom: 0;#}
+{#        }#}
+{##}
+{#        .modal-meta-chip {#}
+{#            flex: 1;#}
+{#            background: #0d1117;#}
+{#            border: 1px solid #1f2937;#}
+{#            border-radius: 10px;#}
+{#            padding: 12px 14px;#}
+{#        }#}
+{#        .modal-meta-chip .chip-label { font-size: 10px; color: #4b5563; letter-spacing: 0.7px; text-transform: uppercase; margin-bottom: 6px; }#}
+{#        .modal-meta-chip .chip-value { font-size: 14px; font-weight: 600; }#}
+{#        .chip-stars  { color: #fbbf24; }#}
+{#        .chip-date   { color: #6b7280; font-size: 13px !important; font-weight: 400 !important; }#}
+{##}
+{#        .rating-bar-wrap { margin-top: 6px; }#}
+{#        .rating-bar-bg {#}
+{#            height: 4px; background: #1f2937;#}
+{#            border-radius: 4px; overflow: hidden;#}
+{#        }#}
+{#        .rating-bar-fill {#}
+{#            height: 100%; border-radius: 4px;#}
+{#            background: linear-gradient(90deg, #fbbf24, #f59e0b);#}
+{#            transition: width 0.4s ease;#}
+{#        }#}
+{#    </style>#}
+{#</head>#}
+{#<body>#}
+{##}
+{#<div class="card">#}
+{#    <!-- Header -->#}
+{#    <div class="header">#}
+{#        <div class="header-left">#}
+{#            <div class="header-icon">#}
+{#                <svg viewBox="0 0 24 24" fill="none" stroke="#818cf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">#}
+{#                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>#}
+{#                </svg>#}
+{#            </div>#}
+{#            <div class="header-text">#}
+{#                <h2>Student Reviews</h2>#}
+{#                <p>Monitor feedback and experience ratings</p>#}
+{#            </div>#}
+{#        </div>#}
+{#        <div class="header-right">#}
+{#            <span class="badge" id="countBadge">— reviews</span>#}
+{#            <div class="search-wrap">#}
+{#                <input type="text" id="searchInput" placeholder="Search student or review…">#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
+{##}
+{#    <!-- Table -->#}
+{#    <div class="table-area">#}
+{#        <table>#}
+{#            <thead>#}
+{#                <tr>#}
+{#                    <th style="width:6%">#</th>#}
+{#                    <th style="width:25%">Student</th>#}
+{#                    <th style="width:35%">Review</th>#}
+{#                    <th style="width:16%">Rating</th>#}
+{#                    <th style="width:18%">Date</th>#}
+{#                </tr>#}
+{#            </thead>#}
+{#            <tbody id="tableBody">#}
+{#                <tr>#}
+{#                    <td colspan="5"><div class="spinner"></div></td>#}
+{#                </tr>#}
+{#            </tbody>#}
+{#        </table>#}
+{#    </div>#}
+{#</div>#}
+{##}
+{#<!-- Detail Modal -->#}
+{#<div class="modal-overlay" id="modalOverlay" onclick="if(event.target===this)closeModal()">#}
+{#    <div class="modal">#}
+{#        <div class="modal-header">#}
+{#            <div class="modal-header-left">#}
+{#                <div id="modalAvatarWrap"></div>#}
+{#                <div>#}
+{#                    <div class="modal-student-name"  id="modalName"></div>#}
+{#                    <div class="modal-student-email" id="modalEmail"></div>#}
+{#                </div>#}
+{#            </div>#}
+{#            <div class="modal-close" onclick="closeModal()">✕</div>#}
+{#        </div>#}
+{#        <div class="modal-body">#}
+{#            <div class="modal-section-label">Review</div>#}
+{#            <div class="modal-review-text" id="modalReview"></div>#}
+{#            <div class="modal-meta-row">#}
+{#                <div class="modal-meta-chip">#}
+{#                    <div class="chip-label">Rating</div>#}
+{#                    <div class="chip-value chip-stars" id="modalStars"></div>#}
+{#                    <div class="rating-bar-wrap">#}
+{#                        <div class="rating-bar-bg">#}
+{#                            <div class="rating-bar-fill" id="modalBar" style="width:0%"></div>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+{#                <div class="modal-meta-chip">#}
+{#                    <div class="chip-label">Date</div>#}
+{#                    <div class="chip-value chip-date" id="modalDate"></div>#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
+{#</div>#}
+{##}
+{#<script>#}
+{#    let allReviews = [];#}
+{##}
+{#    // ── Fetch from Django ──────────────────────────────────────────────────#}
+{#    async function fetchReviews() {#}
+{#        try {#}
+{#            const res = await fetch('/myapp/staff_view_reviews/', {#}
+{#                method: 'POST',#}
+{#                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },#}
+{#                body: new URLSearchParams({ csrfmiddlewaretoken: getCookie('csrftoken') })#}
+{#            });#}
+{#            const json = await res.json();#}
+{#            if (json.status === 'ok') {#}
+{#                allReviews = json.data;#}
+{#                document.getElementById('countBadge').textContent = `${allReviews.length} review${allReviews.length !== 1 ? 's' : ''}`;#}
+{#                renderTable(allReviews);#}
+{#            } else {#}
+{#                showError('Failed to load reviews.');#}
+{#            }#}
+{#        } catch (e) {#}
+{#            showError('Network error. Check server connection.');#}
+{#        }#}
+{#    }#}
+{##}
+{#    // ── Render rows ────────────────────────────────────────────────────────#}
+{#    function renderTable(data) {#}
+{#        const tbody = document.getElementById('tableBody');#}
+{#        if (data.length === 0) {#}
+{#            tbody.innerHTML = `#}
+{#                <tr><td colspan="5" class="empty-cell">#}
+{#                    <span class="empty-icon">💬</span>#}
+{#                    <p>No reviews found</p>#}
+{#                </td></tr>`;#}
+{#            return;#}
+{#        }#}
+{##}
+{#        tbody.innerHTML = data.map((r, i) => {#}
+{#            const initials = r.student_name.trim().split(' ')#}
+{#                .map(w => w[0]).slice(0, 2).join('').toUpperCase();#}
+{#            const avatarHtml = r.student_img#}
+{#                ? `<img class="avatar" src="${r.student_img}" onerror="this.outerHTML='<div class=\'avatar-initials\'>${initials}</div>'">`#}
+{#                : `<div class="avatar-initials">${initials}</div>`;#}
+{##}
+{#            const starsHtml = renderStars(r.rating);#}
+{##}
+{#            return `#}
+{#            <tr onclick="openModal(${i})">#}
+{#                <td style="color:#4b5563;font-size:12px">${i + 1}</td>#}
+{#                <td>#}
+{#                    <div class="student-cell">#}
+{#                        ${avatarHtml}#}
+{#                        <div>#}
+{#                            <div class="student-name">${r.student_name}</div>#}
+{#                            <div class="student-email">${r.student_email}</div>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </td>#}
+{#                <td><div class="review-text">${r.review}</div></td>#}
+{#                <td>#}
+{#                    <span class="stars">${starsHtml}</span>#}
+{#                    <span class="rating-num">${r.rating.toFixed(1)}</span>#}
+{#                </td>#}
+{#                <td><span class="date-pill">${formatDate(r.date)}</span></td>#}
+{#            </tr>`;#}
+{#        }).join('');#}
+{#    }#}
+{##}
+{#    // ── Open modal ─────────────────────────────────────────────────────────#}
+{#    function openModal(index) {#}
+{#        const r = allReviews[index];#}
+{#        const initials = r.student_name.trim().split(' ')#}
+{#            .map(w => w[0]).slice(0, 2).join('').toUpperCase();#}
+{##}
+{#        document.getElementById('modalAvatarWrap').innerHTML = r.student_img#}
+{#            ? `<img class="modal-avatar-lg" src="${r.student_img}" onerror="this.outerHTML='<div class=\'modal-avatar-initials-lg\'>${initials}</div>'">`#}
+{#            : `<div class="modal-avatar-initials-lg">${initials}</div>`;#}
+{##}
+{#        document.getElementById('modalName').textContent   = r.student_name;#}
+{#        document.getElementById('modalEmail').textContent  = r.student_email;#}
+{#        document.getElementById('modalReview').textContent = r.review;#}
+{#        document.getElementById('modalStars').innerHTML    = `${renderStars(r.rating)} <span style="font-size:13px;color:#6b7280">${r.rating.toFixed(1)} / 5</span>`;#}
+{#        document.getElementById('modalDate').textContent   = formatDate(r.date);#}
+{#        document.getElementById('modalBar').style.width    = `${(r.rating / 5) * 100}%`;#}
+{##}
+{#        document.getElementById('modalOverlay').classList.add('open');#}
+{#    }#}
+{##}
+{#    function closeModal() {#}
+{#        document.getElementById('modalOverlay').classList.remove('open');#}
+{#    }#}
+{##}
+{#    // ── Search ─────────────────────────────────────────────────────────────#}
+{#    document.getElementById('searchInput').addEventListener('input', function () {#}
+{#        const q = this.value.toLowerCase();#}
+{#        const filtered = allReviews.filter(r =>#}
+{#            r.student_name.toLowerCase().includes(q) ||#}
+{#            r.review.toLowerCase().includes(q) ||#}
+{#            r.student_email.toLowerCase().includes(q)#}
+{#        );#}
+{#        renderTable(filtered);#}
+{#    });#}
+{##}
+{#    // ── Helpers ────────────────────────────────────────────────────────────#}
+{#    function renderStars(rating) {#}
+{#        const full  = Math.floor(rating);#}
+{#        const half  = rating - full >= 0.5 ? 1 : 0;#}
+{#        const empty = 5 - full - half;#}
+{#        return '★'.repeat(full) + (half ? '½' : '') + '☆'.repeat(empty);#}
+{#    }#}
+{##}
+{#    function formatDate(dateStr) {#}
+{#        const d = new Date(dateStr);#}
+{#        return d.toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' });#}
+{#    }#}
+{##}
+{#    function showError(msg) {#}
+{#        document.getElementById('tableBody').innerHTML = `#}
+{#            <tr><td colspan="5" class="empty-cell">#}
+{#                <span class="empty-icon">⚠</span>#}
+{#                <p>${msg}</p>#}
+{#            </td></tr>`;#}
+{#    }#}
+{##}
+{#    function getCookie(name) {#}
+{#        const v = document.cookie.split('; ').find(r => r.startsWith(name + '='));#}
+{#        return v ? v.split('=')[1] : '';#}
+{#    }#}
+{##}
+{#    // ── Init ───────────────────────────────────────────────────────────────#}
+{#    fetchReviews();#}
+{#</script>#}
+{#</body>#}
+{#</html>#}
+{##}
+{##}
+{#<!DOCTYPE html>#}
+{#<html lang="en">#}
+{#<head>#}
+{#    <meta charset="UTF-8">#}
+{#    <meta name="viewport" content="width=device-width, initial-scale=1.0">#}
+{#    <title>Reviews Dashboard</title>#}
+{#    <style>#}
+{#        * { box-sizing: border-box; }#}
+{#        html, body {#}
+{#            height: 100%; margin: 0; overflow: hidden;#}
+{#            font-family: 'Inter', -apple-system, sans-serif;#}
+{#            background-color: #0b0f19; color: #e2e8f0;#}
+{#        }#}
+{#        body {#}
+{#            display: flex; justify-content: center; align-items: center;#}
+{#            background: radial-gradient(circle at 0% 0%, #161e2e 0%, #0b0f19 100%);#}
+{#        }#}
+{#        .card {#}
+{#            width: 95%; max-width: 1000px; height: 560px;#}
+{#            background: #111827; border-radius: 20px;#}
+{#            display: flex; flex-direction: column; overflow: hidden;#}
+{#            border: 1px solid #1f2937;#}
+{#            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);#}
+{#        }#}
+{#        .header {#}
+{#            padding: 22px 32px; display: flex;#}
+{#            justify-content: space-between; align-items: center;#}
+{#            border-bottom: 1px solid #1f2937; flex-shrink: 0;#}
+{#        }#}
+{#        .header-left  { display: flex; align-items: center; gap: 14px; }#}
+{#        .header-right { display: flex; align-items: center; gap: 10px; }#}
+{#        .header-icon {#}
+{#            width: 42px; height: 42px; background: #1e1b4b;#}
+{#            border-radius: 11px; border: 1px solid #3730a3;#}
+{#            display: flex; align-items: center; justify-content: center;#}
+{#        }#}
+{#        .header-icon svg { width: 20px; height: 20px; }#}
+{#        .header-text h2 { margin: 0; font-size: 18px; font-weight: 700; color: #f9fafb; letter-spacing: -0.3px; }#}
+{#        .header-text p  { margin: 3px 0 0; font-size: 12px; color: #6b7280; }#}
+{#        .badge {#}
+{#            padding: 4px 12px; background: #1e1b4b;#}
+{#            border: 1px solid #3730a3; border-radius: 20px;#}
+{#            font-size: 12px; font-weight: 600; color: #818cf8;#}
+{#        }#}
+{#        .search-wrap input {#}
+{#            background: #0d1117; border: 1px solid #374151;#}
+{#            border-radius: 9px; padding: 9px 14px;#}
+{#            color: #e2e8f0; width: 200px; outline: none; font-size: 13px;#}
+{#        }#}
+{#        .search-wrap input::placeholder { color: #4b5563; }#}
+{#        .search-wrap input:focus { border-color: #6366f1; }#}
+{#        .btn-add {#}
+{#            display: flex; align-items: center; gap: 7px;#}
+{#            padding: 9px 16px; cursor: pointer;#}
+{#            background: #4f46e5; border: 1px solid #6366f1;#}
+{#            border-radius: 9px; color: #e0e7ff;#}
+{#            font-size: 13px; font-weight: 600; transition: background 0.15s;#}
+{#        }#}
+{#        .btn-add:hover { background: #4338ca; }#}
+{#        .btn-add svg { width: 14px; height: 14px; }#}
+{#        .table-area { flex: 1; padding: 0 32px 16px; overflow-y: auto; }#}
+{#        .table-area::-webkit-scrollbar { width: 4px; }#}
+{#        .table-area::-webkit-scrollbar-thumb { background: #2d3748; border-radius: 10px; }#}
+{#        table { width: 100%; border-collapse: collapse; text-align: left; }#}
+{#        th {#}
+{#            padding: 14px 10px; font-size: 10px; text-transform: uppercase;#}
+{#            color: #4b5563; letter-spacing: 1px; border-bottom: 1px solid #1f2937;#}
+{#            position: sticky; top: 0; background: #111827;#}
+{#        }#}
+{#        td { padding: 15px 10px; border-bottom: 1px solid #1a2235; font-size: 13px; vertical-align: middle; }#}
+{#        tbody tr { cursor: pointer; transition: background 0.15s; }#}
+{#        tbody tr:hover td { background: #161f30; }#}
+{#        .student-cell { display: flex; align-items: center; gap: 10px; }#}
+{#        .avatar { width: 34px; height: 34px; border-radius: 50%; object-fit: cover; background: #1e1b4b; border: 1px solid #3730a3; flex-shrink: 0; }#}
+{#        .avatar-initials { width: 34px; height: 34px; border-radius: 50%; background: #1e1b4b; border: 1px solid #3730a3; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; color: #818cf8; flex-shrink: 0; }#}
+{#        .student-name  { font-weight: 600; color: #93c5fd; font-size: 13px; }#}
+{#        .student-email { font-size: 11px; color: #4b5563; }#}
+{#        .review-text { color: #d1d5db; max-width: 260px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }#}
+{#        .stars { color: #fbbf24; font-size: 14px; letter-spacing: 1px; }#}
+{#        .rating-num { font-size: 11px; color: #6b7280; margin-left: 4px; }#}
+{#        .date-pill { display: inline-block; padding: 3px 10px; background: #0d1117; border: 1px solid #1f2937; border-radius: 20px; font-size: 11px; color: #6b7280; }#}
+{#        .empty-cell { text-align: center; padding: 60px 0; color: #374151; }#}
+{#        .empty-cell .empty-icon { font-size: 36px; display: block; margin-bottom: 10px; opacity: 0.4; }#}
+{#        .empty-cell p { margin: 0; font-size: 14px; }#}
+{#        .spinner { width: 28px; height: 28px; border: 3px solid #1f2937; border-top-color: #6366f1; border-radius: 50%; animation: spin 0.8s linear infinite; margin: 60px auto; display: block; }#}
+{#        @keyframes spin { to { transform: rotate(360deg); } }#}
+{##}
+{#        /* ── Shared modal ────────────────────────────────────────────── */#}
+{#        .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.65); backdrop-filter: blur(4px); z-index: 100; align-items: center; justify-content: center; }#}
+{#        .modal-overlay.open { display: flex; }#}
+{#        .modal { background: #111827; border: 1px solid #1f2937; border-radius: 20px; width: 90%; max-width: 480px; padding: 0; overflow: hidden; animation: pop 0.2s ease-out; }#}
+{#        @keyframes pop { from { opacity: 0; transform: scale(0.95) translateY(10px); } to { opacity: 1; transform: scale(1) translateY(0); } }#}
+{#        .modal-header { padding: 20px 24px 16px; border-bottom: 1px solid #1f2937; display: flex; align-items: center; justify-content: space-between; }#}
+{#        .modal-header-left { display: flex; align-items: center; gap: 12px; }#}
+{#        .modal-title-icon { width: 38px; height: 38px; background: #1e1b4b; border-radius: 10px; border: 1px solid #3730a3; display: flex; align-items: center; justify-content: center; }#}
+{#        .modal-title-icon svg { width: 18px; height: 18px; }#}
+{#        .modal-title { font-size: 16px; font-weight: 700; color: #f9fafb; }#}
+{#        .modal-subtitle { font-size: 12px; color: #6b7280; margin-top: 2px; }#}
+{#        .modal-close { width: 32px; height: 32px; background: #1f2937; border: 1px solid #374151; border-radius: 8px; cursor: pointer; display: flex; align-items: center; justify-content: center; color: #6b7280; font-size: 16px; line-height: 1; transition: background 0.15s; }#}
+{#        .modal-close:hover { background: #374151; color: #e2e8f0; }#}
+{#        .modal-body { padding: 22px 24px 24px; }#}
+{##}
+{#        /* View modal */#}
+{#        .modal-avatar-lg { width: 48px; height: 48px; border-radius: 50%; object-fit: cover; background: #1e1b4b; border: 1px solid #3730a3; }#}
+{#        .modal-avatar-initials-lg { width: 48px; height: 48px; border-radius: 50%; background: #1e1b4b; border: 1px solid #3730a3; display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 700; color: #818cf8; }#}
+{#        .modal-student-name  { font-size: 15px; font-weight: 700; color: #f9fafb; }#}
+{#        .modal-student-email { font-size: 12px; color: #6b7280; margin-top: 2px; }#}
+{#        .modal-section-label { font-size: 10px; font-weight: 600; letter-spacing: 0.9px; text-transform: uppercase; color: #4b5563; margin-bottom: 8px; }#}
+{#        .modal-review-text { font-size: 14px; color: #d1d5db; line-height: 1.7; background: #0d1117; border: 1px solid #1f2937; border-radius: 10px; padding: 14px 16px; margin-bottom: 18px; }#}
+{#        .modal-meta-row { display: flex; gap: 10px; }#}
+{#        .modal-meta-chip { flex: 1; background: #0d1117; border: 1px solid #1f2937; border-radius: 10px; padding: 12px 14px; }#}
+{#        .modal-meta-chip .chip-label { font-size: 10px; color: #4b5563; letter-spacing: 0.7px; text-transform: uppercase; margin-bottom: 6px; }#}
+{#        .modal-meta-chip .chip-value { font-size: 14px; font-weight: 600; }#}
+{#        .chip-stars { color: #fbbf24; }#}
+{#        .chip-date  { color: #6b7280; font-size: 13px !important; font-weight: 400 !important; }#}
+{#        .rating-bar-wrap { margin-top: 6px; }#}
+{#        .rating-bar-bg   { height: 4px; background: #1f2937; border-radius: 4px; overflow: hidden; }#}
+{#        .rating-bar-fill { height: 100%; border-radius: 4px; background: linear-gradient(90deg, #fbbf24, #f59e0b); transition: width 0.4s ease; }#}
+{##}
+{#        /* Add modal */#}
+{#        .form-group { margin-bottom: 18px; }#}
+{#        .form-label { display: block; font-size: 10px; font-weight: 600; letter-spacing: 0.8px; text-transform: uppercase; color: #4b5563; margin-bottom: 8px; }#}
+{#        .form-textarea { width: 100%; background: #0d1117; border: 1px solid #374151; border-radius: 10px; padding: 12px 14px; color: #e2e8f0; font-size: 14px; font-family: inherit; resize: none; outline: none; line-height: 1.6; transition: border-color 0.15s; }#}
+{#        .form-textarea:focus { border-color: #6366f1; }#}
+{#        .form-textarea::placeholder { color: #4b5563; }#}
+{#        .star-picker { display: flex; gap: 8px; }#}
+{#        .star-btn { font-size: 28px; cursor: pointer; color: #2d3748; transition: color 0.1s, transform 0.1s; background: none; border: none; padding: 0; line-height: 1; }#}
+{#        .star-btn.active { color: #fbbf24; }#}
+{#        .star-btn:hover  { transform: scale(1.15); }#}
+{#        .rating-display  { margin-left: 10px; font-size: 13px; color: #6b7280; align-self: center; }#}
+{#        .btn-submit { width: 100%; padding: 13px; background: #4f46e5; border: 1px solid #6366f1; border-radius: 11px; color: #e0e7ff; font-size: 14px; font-weight: 600; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; transition: background 0.15s; }#}
+{#        .btn-submit:hover:not(:disabled) { background: #4338ca; }#}
+{#        .btn-submit:disabled { opacity: 0.5; cursor: not-allowed; }#}
+{#        .btn-submit svg { width: 16px; height: 16px; }#}
+{##}
+{#        /* Toast */#}
+{#        .toast { position: fixed; bottom: 28px; left: 50%; transform: translateX(-50%); padding: 11px 20px; border-radius: 10px; font-size: 13px; font-weight: 500; color: #fff; opacity: 0; pointer-events: none; z-index: 200; transition: opacity 0.25s; white-space: nowrap; }#}
+{#        .toast.show { opacity: 1; }#}
+{#        .toast.success { background: #065f46; border: 1px solid #059669; }#}
+{#        .toast.error   { background: #7f1d1d; border: 1px solid #dc2626; }#}
+{#    </style>#}
+{#</head>#}
+{#<body>#}
+{##}
+{#<!-- Main card -->#}
+{#<div class="card">#}
+{#    <div class="header">#}
+{#        <div class="header-left">#}
+{#            <div class="header-icon">#}
+{#                <svg viewBox="0 0 24 24" fill="none" stroke="#818cf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">#}
+{#                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>#}
+{#                </svg>#}
+{#            </div>#}
+{#            <div class="header-text">#}
+{#                <h2>Student Reviews</h2>#}
+{#                <p>Monitor feedback and experience ratings</p>#}
+{#            </div>#}
+{#        </div>#}
+{#        <div class="header-right">#}
+{#            <span class="badge" id="countBadge">— reviews</span>#}
+{#            <div class="search-wrap">#}
+{#                <input type="text" id="searchInput" placeholder="Search…">#}
+{#            </div>#}
+{#            <button class="btn-add" onclick="openAddModal()">#}
+{#                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">#}
+{#                    <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>#}
+{#                </svg>#}
+{#                Add Review#}
+{#            </button>#}
+{#        </div>#}
+{#    </div>#}
+{##}
+{#    <div class="table-area">#}
+{#        <table>#}
+{#            <thead>#}
+{#                <tr>#}
+{#                    <th style="width:6%">#</th>#}
+{#                    <th style="width:25%">Student</th>#}
+{#                    <th style="width:34%">Review</th>#}
+{#                    <th style="width:16%">Rating</th>#}
+{#                    <th style="width:19%">Date</th>#}
+{#                </tr>#}
+{#            </thead>#}
+{#            <tbody id="tableBody">#}
+{#                <tr><td colspan="5"><div class="spinner"></div></td></tr>#}
+{#            </tbody>#}
+{#        </table>#}
+{#    </div>#}
+{#</div>#}
+{##}
+{#<!-- View modal -->#}
+{#<div class="modal-overlay" id="viewModalOverlay" onclick="if(event.target===this)closeViewModal()">#}
+{#    <div class="modal">#}
+{#        <div class="modal-header">#}
+{#            <div class="modal-header-left">#}
+{#                <div id="modalAvatarWrap"></div>#}
+{#                <div>#}
+{#                    <div class="modal-student-name"  id="modalName"></div>#}
+{#                    <div class="modal-student-email" id="modalEmail"></div>#}
+{#                </div>#}
+{#            </div>#}
+{#            <div class="modal-close" onclick="closeViewModal()">&#10005;</div>#}
+{#        </div>#}
+{#        <div class="modal-body">#}
+{#            <div class="modal-section-label">Review</div>#}
+{#            <div class="modal-review-text" id="modalReview"></div>#}
+{#            <div class="modal-meta-row">#}
+{#                <div class="modal-meta-chip">#}
+{#                    <div class="chip-label">Rating</div>#}
+{#                    <div class="chip-value chip-stars" id="modalStars"></div>#}
+{#                    <div class="rating-bar-wrap">#}
+{#                        <div class="rating-bar-bg">#}
+{#                            <div class="rating-bar-fill" id="modalBar" style="width:0%"></div>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+{#                <div class="modal-meta-chip">#}
+{#                    <div class="chip-label">Date</div>#}
+{#                    <div class="chip-value chip-date" id="modalDate"></div>#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
+{#</div>#}
+{##}
+{#<!-- Add Review modal -->#}
+{#<div class="modal-overlay" id="addModalOverlay" onclick="if(event.target===this)closeAddModal()">#}
+{#    <div class="modal">#}
+{#        <div class="modal-header">#}
+{#            <div class="modal-header-left">#}
+{#                <div class="modal-title-icon">#}
+{#                    <svg viewBox="0 0 24 24" fill="none" stroke="#818cf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">#}
+{#                        <path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>#}
+{#                    </svg>#}
+{#                </div>#}
+{#                <div>#}
+{#                    <div class="modal-title">Write a Review</div>#}
+{#                    <div class="modal-subtitle">Share your experience</div>#}
+{#                </div>#}
+{#            </div>#}
+{#            <div class="modal-close" onclick="closeAddModal()">&#10005;</div>#}
+{#        </div>#}
+{#        <div class="modal-body">#}
+{#            <div class="form-group">#}
+{#                <label class="form-label">Rating</label>#}
+{#                <div style="display:flex;align-items:center">#}
+{#                    <div class="star-picker">#}
+{#                        <button class="star-btn" data-val="1" onclick="setRating(1)">&#9733;</button>#}
+{#                        <button class="star-btn" data-val="2" onclick="setRating(2)">&#9733;</button>#}
+{#                        <button class="star-btn" data-val="3" onclick="setRating(3)">&#9733;</button>#}
+{#                        <button class="star-btn" data-val="4" onclick="setRating(4)">&#9733;</button>#}
+{#                        <button class="star-btn" data-val="5" onclick="setRating(5)">&#9733;</button>#}
+{#                    </div>#}
+{#                    <span class="rating-display" id="ratingDisplay">Tap to rate</span>#}
+{#                </div>#}
+{#            </div>#}
+{#            <div class="form-group">#}
+{#                <label class="form-label">Your Review</label>#}
+{#                <textarea id="reviewInput" class="form-textarea" rows="4"#}
+{#                    placeholder="Share your thoughts about this course or material…"></textarea>#}
+{#            </div>#}
+{#            <button class="btn-submit" id="submitBtn" onclick="submitReview()">#}
+{#                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">#}
+{#                    <line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/>#}
+{#                </svg>#}
+{#                Submit Review#}
+{#            </button>#}
+{#        </div>#}
+{#    </div>#}
+{#</div>#}
+{##}
+{#<div class="toast" id="toast"></div>#}
+{##}
+{#<script>#}
+{#    let allReviews   = [];#}
+{#    let chosenRating = 0;#}
+{##}
+{#    function getCookie(name) {#}
+{#        const v = document.cookie.split('; ').find(r => r.startsWith(name + '='));#}
+{#        return v ? v.split('=')[1] : '';#}
+{#    }#}
+{##}
+{#    // ── Fetch ──────────────────────────────────────────────────────────────#}
+{#    async function fetchReviews() {#}
+{#        try {#}
+{#            const res  = await fetch('/myapp/staff_view_reviews/', {#}
+{#                method: 'POST',#}
+{#                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },#}
+{#                body: new URLSearchParams({ csrfmiddlewaretoken: getCookie('csrftoken') })#}
+{#            });#}
+{#            const json = await res.json();#}
+{#            if (json.status === 'ok') {#}
+{#                allReviews = json.data;#}
+{#                document.getElementById('countBadge').textContent =#}
+{#                    allReviews.length + ' review' + (allReviews.length !== 1 ? 's' : '');#}
+{#                renderTable(allReviews);#}
+{#            } else { showError('Failed to load reviews.'); }#}
+{#        } catch(e) { showError('Network error.'); }#}
+{#    }#}
+{##}
+{#    // ── Render ─────────────────────────────────────────────────────────────#}
+{#    function renderTable(data) {#}
+{#        const tbody = document.getElementById('tableBody');#}
+{#        if (!data.length) {#}
+{#            tbody.innerHTML = '<tr><td colspan="5" class="empty-cell"><span class="empty-icon">&#128172;</span><p>No reviews yet</p></td></tr>';#}
+{#            return;#}
+{#        }#}
+{#        tbody.innerHTML = data.map(function(r, i) {#}
+{#            const initials = r.student_name.trim().split(' ').map(function(w){return w[0];}).slice(0,2).join('').toUpperCase();#}
+{#            const av = r.student_img#}
+{#                ? '<img class="avatar" src="' + r.student_img + '" onerror="this.style.display=\'none\'">'#}
+{#                : '<div class="avatar-initials">' + initials + '</div>';#}
+{#            return '<tr onclick="openViewModal(' + i + ')">' +#}
+{#                '<td style="color:#4b5563;font-size:12px">' + (i+1) + '</td>' +#}
+{#                '<td><div class="student-cell">' + av +#}
+{#                '<div><div class="student-name">' + r.student_name + '</div>' +#}
+{#                '<div class="student-email">' + r.student_email + '</div></div></div></td>' +#}
+{#                '<td><div class="review-text">' + r.review + '</div></td>' +#}
+{#                '<td><span class="stars">' + renderStars(r.rating) + '</span>' +#}
+{#                '<span class="rating-num">' + r.rating.toFixed(1) + '</span></td>' +#}
+{#                '<td><span class="date-pill">' + formatDate(r.date) + '</span></td>' +#}
+{#                '</tr>';#}
+{#        }).join('');#}
+{#    }#}
+{##}
+{#    // ── View modal ─────────────────────────────────────────────────────────#}
+{#    function openViewModal(index) {#}
+{#        const r = allReviews[index];#}
+{#        const initials = r.student_name.trim().split(' ').map(function(w){return w[0];}).slice(0,2).join('').toUpperCase();#}
+{#        document.getElementById('modalAvatarWrap').innerHTML = r.student_img#}
+{#            ? '<img class="modal-avatar-lg" src="' + r.student_img + '">'#}
+{#            : '<div class="modal-avatar-initials-lg">' + initials + '</div>';#}
+{#        document.getElementById('modalName').textContent   = r.student_name;#}
+{#        document.getElementById('modalEmail').textContent  = r.student_email;#}
+{#        document.getElementById('modalReview').textContent = r.review;#}
+{#        document.getElementById('modalStars').innerHTML    = renderStars(r.rating) + ' <span style="font-size:13px;color:#6b7280">' + r.rating.toFixed(1) + ' / 5</span>';#}
+{#        document.getElementById('modalDate').textContent   = formatDate(r.date);#}
+{#        document.getElementById('modalBar').style.width    = ((r.rating / 5) * 100) + '%';#}
+{#        document.getElementById('viewModalOverlay').classList.add('open');#}
+{#    }#}
+{#    function closeViewModal() { document.getElementById('viewModalOverlay').classList.remove('open'); }#}
+{##}
+{#    // ── Add modal ──────────────────────────────────────────────────────────#}
+{#    function openAddModal() {#}
+{#        chosenRating = 0;#}
+{#        document.getElementById('reviewInput').value = '';#}
+{#        updateStarUI(0);#}
+{#        document.getElementById('ratingDisplay').textContent = 'Tap to rate';#}
+{#        document.getElementById('addModalOverlay').classList.add('open');#}
+{#    }#}
+{#    function closeAddModal() { document.getElementById('addModalOverlay').classList.remove('open'); }#}
+{##}
+{#    function setRating(val) {#}
+{#        chosenRating = val;#}
+{#        updateStarUI(val);#}
+{#        var labels = ['','Poor','Fair','Good','Very Good','Excellent'];#}
+{#        document.getElementById('ratingDisplay').textContent = val + ' / 5 \u2014 ' + labels[val];#}
+{#    }#}
+{#    function updateStarUI(val) {#}
+{#        document.querySelectorAll('.star-btn').forEach(function(btn) {#}
+{#            btn.classList.toggle('active', parseInt(btn.dataset.val) <= val);#}
+{#        });#}
+{#    }#}
+{##}
+{#    // ── Submit ─────────────────────────────────────────────────────────────#}
+{#    async function submitReview() {#}
+{#        const reviewText = document.getElementById('reviewInput').value.trim();#}
+{#        if (!reviewText)   { showToast('Please write a review.', 'error');    return; }#}
+{#        if (!chosenRating) { showToast('Please select a rating.', 'error');   return; }#}
+{##}
+{#        const btn = document.getElementById('submitBtn');#}
+{#        btn.disabled = true;#}
+{#        btn.innerHTML = '<div class="spinner" style="width:18px;height:18px;margin:0;border-width:2px"></div>&nbsp;Submitting\u2026';#}
+{##}
+{#        try {#}
+{#            const res  = await fetch('/myapp/student_add_review/', {#}
+{#                method: 'POST',#}
+{#                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },#}
+{#                body: new URLSearchParams({#}
+{#                    csrfmiddlewaretoken: getCookie('csrftoken'),#}
+{#                    review: reviewText,#}
+{#                    rating: chosenRating#}
+{#                })#}
+{#            });#}
+{#            const json = await res.json();#}
+{#            if (json.status === 'ok') {#}
+{#                showToast('Review submitted!', 'success');#}
+{#                closeAddModal();#}
+{#                fetchReviews();#}
+{#            } else {#}
+{#                showToast(json.message || 'Submission failed.', 'error');#}
+{#            }#}
+{#        } catch(e) {#}
+{#            showToast('Network error.', 'error');#}
+{#        } finally {#}
+{#            btn.disabled = false;#}
+{#            btn.innerHTML = 'Submit Review';#}
+{#        }#}
+{#    }#}
+{##}
+{#    // ── Search ─────────────────────────────────────────────────────────────#}
+{#    document.getElementById('searchInput').addEventListener('input', function() {#}
+{#        var q = this.value.toLowerCase();#}
+{#        renderTable(allReviews.filter(function(r) {#}
+{#            return r.student_name.toLowerCase().includes(q) ||#}
+{#                   r.review.toLowerCase().includes(q) ||#}
+{#                   r.student_email.toLowerCase().includes(q);#}
+{#        }));#}
+{#    });#}
+{##}
+{#    // ── Helpers ────────────────────────────────────────────────────────────#}
+{#    function renderStars(rating) {#}
+{#        var full  = Math.floor(rating);#}
+{#        var half  = rating - full >= 0.5 ? 1 : 0;#}
+{#        var empty = 5 - full - half;#}
+{#        return '\u2605'.repeat(full) + (half ? '\u00BD' : '') + '\u2606'.repeat(empty);#}
+{#    }#}
+{#    function formatDate(dateStr) {#}
+{#        return new Date(dateStr).toLocaleDateString('en-GB', { day:'2-digit', month:'short', year:'numeric' });#}
+{#    }#}
+{#    function showError(msg) {#}
+{#        document.getElementById('tableBody').innerHTML =#}
+{#            '<tr><td colspan="5" class="empty-cell"><span class="empty-icon">&#9888;</span><p>' + msg + '</p></td></tr>';#}
+{#    }#}
+{#    function showToast(msg, type) {#}
+{#        var t = document.getElementById('toast');#}
+{#        t.textContent = msg;#}
+{#        t.className = 'toast ' + type + ' show';#}
+{#        setTimeout(function(){ t.className = 'toast'; }, 3000);#}
+{#    }#}
+{##}
+{#    fetchReviews();#}
+{#</script>#}
+{#</body>#}
+{#</html>#}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reviews Dashboard</title>
+    <style>
+        * { box-sizing: border-box; }
+        html, body {
+            height: 100%; margin: 0; overflow: hidden;
+            font-family: 'Inter', -apple-system, sans-serif;
+            background-color: #0b0f19; color: #e2e8f0;
+        }
+        body {
+            display: flex; justify-content: center; align-items: center;
+            background: radial-gradient(circle at 0% 0%, #161e2e 0%, #0b0f19 100%);
+        }
+        .card {
+            width: 95%; max-width: 1000px; height: 560px;
+            background: #111827; border-radius: 20px;
+            display: flex; flex-direction: column; overflow: hidden;
+            border: 1px solid #1f2937;
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
+        }
+        .header {
+            padding: 22px 32px; display: flex;
+            justify-content: space-between; align-items: center;
+            border-bottom: 1px solid #1f2937; flex-shrink: 0;
+        }
+        .header-left  { display: flex; align-items: center; gap: 14px; }
+        .header-right { display: flex; align-items: center; gap: 10px; }
+        .header-icon {
+            width: 42px; height: 42px; background: #1e1b4b;
+            border-radius: 11px; border: 1px solid #3730a3;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .header-icon svg { width: 20px; height: 20px; }
+        .header-text h2 { margin: 0; font-size: 18px; font-weight: 700; color: #f9fafb; letter-spacing: -0.3px; }
+        .header-text p  { margin: 3px 0 0; font-size: 12px; color: #6b7280; }
+        .badge {
+            padding: 4px 12px; background: #1e1b4b;
+            border: 1px solid #3730a3; border-radius: 20px;
+            font-size: 12px; font-weight: 600; color: #818cf8;
+        }
+        .search-wrap input {
+            background: #0d1117; border: 1px solid #374151;
+            border-radius: 9px; padding: 9px 14px;
+            color: #e2e8f0; width: 200px; outline: none; font-size: 13px;
+        }
+        .search-wrap input::placeholder { color: #4b5563; }
+        .search-wrap input:focus { border-color: #6366f1; }
+        .btn-add {
+            display: flex; align-items: center; gap: 7px;
+            padding: 9px 16px; cursor: pointer;
+            background: #4f46e5; border: 1px solid #6366f1;
+            border-radius: 9px; color: #e0e7ff;
+            font-size: 13px; font-weight: 600; transition: background 0.15s;
+        }
+        .btn-add:hover { background: #4338ca; }
+        .btn-add svg { width: 14px; height: 14px; }
+        .table-area { flex: 1; padding: 0 32px 16px; overflow-y: auto; }
+        .table-area::-webkit-scrollbar { width: 4px; }
+        .table-area::-webkit-scrollbar-thumb { background: #2d3748; border-radius: 10px; }
+        table { width: 100%; border-collapse: collapse; text-align: left; }
+        th {
+            padding: 14px 10px; font-size: 10px; text-transform: uppercase;
+            color: #4b5563; letter-spacing: 1px; border-bottom: 1px solid #1f2937;
+            position: sticky; top: 0; background: #111827;
+        }
+        td { padding: 15px 10px; border-bottom: 1px solid #1a2235; font-size: 13px; vertical-align: middle; }
+        tbody tr { cursor: pointer; transition: background 0.15s; }
+        tbody tr:hover td { background: #161f30; }
+        .student-cell { display: flex; align-items: center; gap: 10px; }
+        .avatar { width: 34px; height: 34px; border-radius: 50%; object-fit: cover; background: #1e1b4b; border: 1px solid #3730a3; flex-shrink: 0; }
+        .avatar-initials { width: 34px; height: 34px; border-radius: 50%; background: #1e1b4b; border: 1px solid #3730a3; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; color: #818cf8; flex-shrink: 0; }
+        .student-name  { font-weight: 600; color: #93c5fd; font-size: 13px; }
+        .student-email { font-size: 11px; color: #4b5563; }
+        .review-text { color: #d1d5db; max-width: 260px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .stars { color: #fbbf24; font-size: 14px; letter-spacing: 1px; }
+        .rating-num { font-size: 11px; color: #6b7280; margin-left: 4px; }
+        .date-pill { display: inline-block; padding: 3px 10px; background: #0d1117; border: 1px solid #1f2937; border-radius: 20px; font-size: 11px; color: #6b7280; }
+        .empty-cell { text-align: center; padding: 60px 0; color: #374151; }
+        .empty-cell .empty-icon { font-size: 36px; display: block; margin-bottom: 10px; opacity: 0.4; }
+        .empty-cell p { margin: 0; font-size: 14px; }
+        .spinner { width: 28px; height: 28px; border: 3px solid #1f2937; border-top-color: #6366f1; border-radius: 50%; animation: spin 0.8s linear infinite; margin: 60px auto; display: block; }
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        /* ── Shared modal ────────────────────────────────────────────── */
+        .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.65); backdrop-filter: blur(4px); z-index: 100; align-items: center; justify-content: center; }
+        .modal-overlay.open { display: flex; }
+        .modal { background: #111827; border: 1px solid #1f2937; border-radius: 20px; width: 90%; max-width: 480px; padding: 0; overflow: hidden; animation: pop 0.2s ease-out; }
+        @keyframes pop { from { opacity: 0; transform: scale(0.95) translateY(10px); } to { opacity: 1; transform: scale(1) translateY(0); } }
+        .modal-header { padding: 20px 24px 16px; border-bottom: 1px solid #1f2937; display: flex; align-items: center; justify-content: space-between; }
+        .modal-header-left { display: flex; align-items: center; gap: 12px; }
+        .modal-title-icon { width: 38px; height: 38px; background: #1e1b4b; border-radius: 10px; border: 1px solid #3730a3; display: flex; align-items: center; justify-content: center; }
+        .modal-title-icon svg { width: 18px; height: 18px; }
+        .modal-title { font-size: 16px; font-weight: 700; color: #f9fafb; }
+        .modal-subtitle { font-size: 12px; color: #6b7280; margin-top: 2px; }
+        .modal-close { width: 32px; height: 32px; background: #1f2937; border: 1px solid #374151; border-radius: 8px; cursor: pointer; display: flex; align-items: center; justify-content: center; color: #6b7280; font-size: 16px; line-height: 1; transition: background 0.15s; }
+        .modal-close:hover { background: #374151; color: #e2e8f0; }
+        .modal-body { padding: 22px 24px 24px; }
+
+        /* View modal */
+        .modal-avatar-lg { width: 48px; height: 48px; border-radius: 50%; object-fit: cover; background: #1e1b4b; border: 1px solid #3730a3; }
+        .modal-avatar-initials-lg { width: 48px; height: 48px; border-radius: 50%; background: #1e1b4b; border: 1px solid #3730a3; display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 700; color: #818cf8; }
+        .modal-student-name  { font-size: 15px; font-weight: 700; color: #f9fafb; }
+        .modal-student-email { font-size: 12px; color: #6b7280; margin-top: 2px; }
+        .modal-section-label { font-size: 10px; font-weight: 600; letter-spacing: 0.9px; text-transform: uppercase; color: #4b5563; margin-bottom: 8px; }
+        .modal-review-text { font-size: 14px; color: #d1d5db; line-height: 1.7; background: #0d1117; border: 1px solid #1f2937; border-radius: 10px; padding: 14px 16px; margin-bottom: 18px; }
+        .modal-meta-row { display: flex; gap: 10px; }
+        .modal-meta-chip { flex: 1; background: #0d1117; border: 1px solid #1f2937; border-radius: 10px; padding: 12px 14px; }
+        .modal-meta-chip .chip-label { font-size: 10px; color: #4b5563; letter-spacing: 0.7px; text-transform: uppercase; margin-bottom: 6px; }
+        .modal-meta-chip .chip-value { font-size: 14px; font-weight: 600; }
+        .chip-stars { color: #fbbf24; }
+        .chip-date  { color: #6b7280; font-size: 13px !important; font-weight: 400 !important; }
+        .rating-bar-wrap { margin-top: 6px; }
+        .rating-bar-bg   { height: 4px; background: #1f2937; border-radius: 4px; overflow: hidden; }
+        .rating-bar-fill { height: 100%; border-radius: 4px; background: linear-gradient(90deg, #fbbf24, #f59e0b); transition: width 0.4s ease; }
+
+        /* Add modal */
+        .form-group { margin-bottom: 18px; }
+        .form-label { display: block; font-size: 10px; font-weight: 600; letter-spacing: 0.8px; text-transform: uppercase; color: #4b5563; margin-bottom: 8px; }
+        .form-textarea { width: 100%; background: #0d1117; border: 1px solid #374151; border-radius: 10px; padding: 12px 14px; color: #e2e8f0; font-size: 14px; font-family: inherit; resize: none; outline: none; line-height: 1.6; transition: border-color 0.15s; }
+        .form-textarea:focus { border-color: #6366f1; }
+        .form-textarea::placeholder { color: #4b5563; }
+        .star-picker { display: flex; gap: 8px; }
+        .star-btn { font-size: 28px; cursor: pointer; color: #2d3748; transition: color 0.1s, transform 0.1s; background: none; border: none; padding: 0; line-height: 1; }
+        .star-btn.active { color: #fbbf24; }
+        .star-btn:hover  { transform: scale(1.15); }
+        .rating-display  { margin-left: 10px; font-size: 13px; color: #6b7280; align-self: center; }
+        .btn-submit { width: 100%; padding: 13px; background: #4f46e5; border: 1px solid #6366f1; border-radius: 11px; color: #e0e7ff; font-size: 14px; font-weight: 600; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; transition: background 0.15s; }
+        .btn-submit:hover:not(:disabled) { background: #4338ca; }
+        .btn-submit:disabled { opacity: 0.5; cursor: not-allowed; }
+        .btn-submit svg { width: 16px; height: 16px; }
+
+        /* Toast */
+        .toast { position: fixed; bottom: 28px; left: 50%; transform: translateX(-50%); padding: 11px 20px; border-radius: 10px; font-size: 13px; font-weight: 500; color: #fff; opacity: 0; pointer-events: none; z-index: 200; transition: opacity 0.25s; white-space: nowrap; }
+        .toast.show { opacity: 1; }
+        .toast.success { background: #065f46; border: 1px solid #059669; }
+        .toast.error   { background: #7f1d1d; border: 1px solid #dc2626; }
+    </style>
+</head>
+<body>
+
+<!-- Main card -->
+<div class="card">
+    <div class="header">
+        <div class="header-left">
+            <div class="header-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#818cf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                </svg>
+            </div>
+            <div class="header-text">
+                <h2>Student Reviews</h2>
+                <p>Monitor feedback and experience ratings</p>
+            </div>
+        </div>
+        <div class="header-right">
+            <span class="badge" id="countBadge">— reviews</span>
+            <div class="search-wrap">
+                <input type="text" id="searchInput" placeholder="Search…">
+            </div>
+            <button class="btn-add" onclick="openAddModal()">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+                    <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
+                </svg>
+                Add Review
+            </button>
+        </div>
+    </div>
+
+    <div class="table-area">
+        <table>
+            <thead>
+                <tr>
+                    <th style="width:6%">#</th>
+                    <th style="width:25%">Student</th>
+                    <th style="width:34%">Review</th>
+                    <th style="width:16%">Rating</th>
+                    <th style="width:19%">Date</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody">
+                <tr><td colspan="5"><div class="spinner"></div></td></tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- View modal -->
+<div class="modal-overlay" id="viewModalOverlay" onclick="if(event.target===this)closeViewModal()">
+    <div class="modal">
+        <div class="modal-header">
+            <div class="modal-header-left">
+                <div id="modalAvatarWrap"></div>
+                <div>
+                    <div class="modal-student-name"  id="modalName"></div>
+                    <div class="modal-student-email" id="modalEmail"></div>
+                </div>
+            </div>
+            <div class="modal-close" onclick="closeViewModal()">&#10005;</div>
+        </div>
+        <div class="modal-body">
+            <div class="modal-section-label">Review</div>
+            <div class="modal-review-text" id="modalReview"></div>
+            <div class="modal-meta-row">
+                <div class="modal-meta-chip">
+                    <div class="chip-label">Rating</div>
+                    <div class="chip-value chip-stars" id="modalStars"></div>
+                    <div class="rating-bar-wrap">
+                        <div class="rating-bar-bg">
+                            <div class="rating-bar-fill" id="modalBar" style="width:0%"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-meta-chip">
+                    <div class="chip-label">Date</div>
+                    <div class="chip-value chip-date" id="modalDate"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Add Review modal -->
+<div class="modal-overlay" id="addModalOverlay" onclick="if(event.target===this)closeAddModal()">
+    <div class="modal">
+        <div class="modal-header">
+            <div class="modal-header-left">
+                <div class="modal-title-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#818cf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>
+                    </svg>
+                </div>
+                <div>
+                    <div class="modal-title">Write a Review</div>
+                    <div class="modal-subtitle">Share your experience</div>
+                </div>
+            </div>
+            <div class="modal-close" onclick="closeAddModal()">&#10005;</div>
+        </div>
+        <div class="modal-body">
+            <div class="form-group">
+                <label class="form-label">Rating</label>
+                <div style="display:flex;align-items:center">
+                    <div class="star-picker">
+                        <button class="star-btn" data-val="1" onclick="setRating(1)">&#9733;</button>
+                        <button class="star-btn" data-val="2" onclick="setRating(2)">&#9733;</button>
+                        <button class="star-btn" data-val="3" onclick="setRating(3)">&#9733;</button>
+                        <button class="star-btn" data-val="4" onclick="setRating(4)">&#9733;</button>
+                        <button class="star-btn" data-val="5" onclick="setRating(5)">&#9733;</button>
+                    </div>
+                    <span class="rating-display" id="ratingDisplay">Tap to rate</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Your Review</label>
+                <textarea id="reviewInput" class="form-textarea" rows="4"
+                    placeholder="Share your thoughts about this course or material…"></textarea>
+            </div>
+            <button class="btn-submit" id="submitBtn" onclick="submitReview()">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/>
+                </svg>
+                Submit Review
+            </button>
+        </div>
+    </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+    let allReviews   = [];
+    let chosenRating = 0;
+
+    function getCookie(name) {
+        const v = document.cookie.split('; ').find(r => r.startsWith(name + '='));
+        return v ? v.split('=')[1] : '';
+    }
+
+    // ── Fetch ──────────────────────────────────────────────────────────────
+    async function fetchReviews() {
+        try {
+            const res  = await fetch('/myapp/staff_view_reviews/', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: new URLSearchParams({ csrfmiddlewaretoken: getCookie('csrftoken') })
+            });
+            const json = await res.json();
+            if (json.status === 'ok') {
+                allReviews = json.data;
+                document.getElementById('countBadge').textContent =
+                    allReviews.length + ' review' + (allReviews.length !== 1 ? 's' : '');
+                renderTable(allReviews);
+            } else { showError('Failed to load reviews.'); }
+        } catch(e) { showError('Network error.'); }
+    }
+
+    // ── Render ─────────────────────────────────────────────────────────────
+    function renderTable(data) {
+        const tbody = document.getElementById('tableBody');
+        if (!data.length) {
+            tbody.innerHTML = '<tr><td colspan="5" class="empty-cell"><span class="empty-icon">&#128172;</span><p>No reviews yet</p></td></tr>';
+            return;
+        }
+        tbody.innerHTML = data.map(function(r, i) {
+            const initials = r.student_name.trim().split(' ').map(function(w){return w[0];}).slice(0,2).join('').toUpperCase();
+            const av = r.student_img
+                ? '<img class="avatar" src="' + r.student_img + '" onerror="this.style.display=\'none\'">'
+                : '<div class="avatar-initials">' + initials + '</div>';
+            return '<tr onclick="openViewModal(' + i + ')">' +
+                '<td style="color:#4b5563;font-size:12px">' + (i+1) + '</td>' +
+                '<td><div class="student-cell">' + av +
+                '<div><div class="student-name">' + r.student_name + '</div>' +
+                '<div class="student-email">' + r.student_email + '</div></div></div></td>' +
+                '<td><div class="review-text">' + r.review + '</div></td>' +
+                '<td><span class="stars">' + renderStars(r.rating) + '</span>' +
+                '<span class="rating-num">' + r.rating.toFixed(1) + '</span></td>' +
+                '<td><span class="date-pill">' + formatDate(r.date) + '</span></td>' +
+                '</tr>';
+        }).join('');
+    }
+
+    // ── View modal ─────────────────────────────────────────────────────────
+    function openViewModal(index) {
+        const r = allReviews[index];
+        const initials = r.student_name.trim().split(' ').map(function(w){return w[0];}).slice(0,2).join('').toUpperCase();
+        document.getElementById('modalAvatarWrap').innerHTML = r.student_img
+            ? '<img class="modal-avatar-lg" src="' + r.student_img + '">'
+            : '<div class="modal-avatar-initials-lg">' + initials + '</div>';
+        document.getElementById('modalName').textContent   = r.student_name;
+        document.getElementById('modalEmail').textContent  = r.student_email;
+        document.getElementById('modalReview').textContent = r.review;
+        document.getElementById('modalStars').innerHTML    = renderStars(r.rating) + ' <span style="font-size:13px;color:#6b7280">' + r.rating.toFixed(1) + ' / 5</span>';
+        document.getElementById('modalDate').textContent   = formatDate(r.date);
+        document.getElementById('modalBar').style.width    = ((r.rating / 5) * 100) + '%';
+        document.getElementById('viewModalOverlay').classList.add('open');
+    }
+    function closeViewModal() { document.getElementById('viewModalOverlay').classList.remove('open'); }
+
+    // ── Add modal ──────────────────────────────────────────────────────────
+    function openAddModal() {
+        chosenRating = 0;
+        document.getElementById('reviewInput').value = '';
+        updateStarUI(0);
+        document.getElementById('ratingDisplay').textContent = 'Tap to rate';
+        document.getElementById('addModalOverlay').classList.add('open');
+    }
+    function closeAddModal() { document.getElementById('addModalOverlay').classList.remove('open'); }
+
+    function setRating(val) {
+        chosenRating = val;
+        updateStarUI(val);
+        var labels = ['','Poor','Fair','Good','Very Good','Excellent'];
+        document.getElementById('ratingDisplay').textContent = val + ' / 5 \u2014 ' + labels[val];
+    }
+    function updateStarUI(val) {
+        document.querySelectorAll('.star-btn').forEach(function(btn) {
+            btn.classList.toggle('active', parseInt(btn.dataset.val) <= val);
+        });
+    }
+
+    // ── Submit ─────────────────────────────────────────────────────────────
+    async function submitReview() {
+        const reviewText = document.getElementById('reviewInput').value.trim();
+        if (!reviewText)   { showToast('Please write a review.', 'error');    return; }
+        if (!chosenRating) { showToast('Please select a rating.', 'error');   return; }
+
+        const btn = document.getElementById('submitBtn');
+        btn.disabled = true;
+        btn.innerHTML = '<div class="spinner" style="width:18px;height:18px;margin:0;border-width:2px"></div>&nbsp;Submitting\u2026';
+
+        try {
+            const res  = await fetch('/myapp/student_add_review/', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: new URLSearchParams({
+                    csrfmiddlewaretoken: getCookie('csrftoken'),
+                    review: reviewText,
+                    rating: chosenRating
+                })
+            });
+            const json = await res.json();
+            if (json.status === 'ok') {
+                showToast('Review submitted!', 'success');
+                closeAddModal();
+                fetchReviews();
+            } else {
+                showToast(json.message || 'Submission failed.', 'error');
+            }
+        } catch(e) {
+            showToast('Network error.', 'error');
+        } finally {
+            btn.disabled = false;
+            btn.innerHTML = 'Submit Review';
+        }
+    }
+
+    // ── Search ─────────────────────────────────────────────────────────────
+    document.getElementById('searchInput').addEventListener('input', function() {
+        var q = this.value.toLowerCase();
+        renderTable(allReviews.filter(function(r) {
+            return r.student_name.toLowerCase().includes(q) ||
+                   r.review.toLowerCase().includes(q) ||
+                   r.student_email.toLowerCase().includes(q);
+        }));
+    });
+
+    // ── Helpers ────────────────────────────────────────────────────────────
+    function renderStars(rating) {
+        var full  = Math.floor(rating);
+        var half  = rating - full >= 0.5 ? 1 : 0;
+        var empty = 5 - full - half;
+        return '\u2605'.repeat(full) + (half ? '\u00BD' : '') + '\u2606'.repeat(empty);
+    }
+    function formatDate(dateStr) {
+        return new Date(dateStr).toLocaleDateString('en-GB', { day:'2-digit', month:'short', year:'numeric' });
+    }
+    function showError(msg) {
+        document.getElementById('tableBody').innerHTML =
+            '<tr><td colspan="5" class="empty-cell"><span class="empty-icon">&#9888;</span><p>' + msg + '</p></td></tr>';
+    }
+    function showToast(msg, type) {
+        var t = document.getElementById('toast');
+        t.textContent = msg;
+        t.className = 'toast ' + type + ' show';
+        setTimeout(function(){ t.className = 'toast'; }, 3000);
+    }
+
+    fetchReviews();
+</script>
+</body>
+</html>

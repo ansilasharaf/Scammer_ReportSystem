@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Share Link</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    background: #0f172a;
+    color: #e5e7eb;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Card */
+.card {
+    position: relative; /* Necessary for absolute positioning of back button */
+    width: 420px;
+    background: #020617;
+    padding: 40px 30px 30px 30px;
+    border-radius: 14px;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.7);
+    border: 1px solid #1e293b;
+}
+
+/* REDESIGNED BACK BUTTON */
+.btn-back {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    color: #94a3b8;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    transition: color 0.2s;
+}
+
+.btn-back:hover {
+    color: #ffffff;
+}
+
+/* Title */
+h2 {
+    text-align: center;
+    color: #ffffff;
+    margin-bottom: 25px;
+    font-size: 22px;
+    letter-spacing: 0.5px;
+}
+
+label {
+    font-size: 13px;
+    color: #94a3b8;
+    display: block;
+    margin-top: 20px;
+    font-weight: 500;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    margin-top: 8px;
+    background: #0f172a;
+    border: 1px solid #1e293b;
+    border-radius: 8px;
+    color: #e5e7eb;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+input:focus {
+    outline: none;
+    border-color: #3b82f6;
+    background: #131c31;
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+}
+
+/* Submit Button */
+button {
+    width: 100%;
+    margin-top: 30px;
+    padding: 14px;
+    background: #2563eb;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background: #1d4ed8;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+button:active {
+    transform: translateY(0);
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+    <a href="/myapp/view_shared_link/" class="btn-back">
+        <span style="margin-right: 5px;">&larr;</span> Back
+    </a>
+
+    <h2>Share Link</h2>
+
+    <form method="post">
+        {% csrf_token %} <label>Title</label>
+        <input type="text" placeholder="Enter resource title" name="title" value="{{ data.title }}" required>
+
+        <label>Link URL</label>
+        <input type="url" placeholder="https://example.com/resource" name="link" value="{{ data.link }}" required>
+
+        <button type="submit">Share Resource</button>
+    </form>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assign Subject - Dark Mode</title>
+</head>
+<body style="font-family: 'Segoe UI', Arial, sans-serif; background-color: #121212; margin: 0; display: flex; justify-content: center; align-items: center; height: 100vh; color: #e0e0e0;">
+
+    <div style="background-color: #1e1e1e; width: 100%; max-width: 400px; padding: 40px; border-radius: 20px; box-shadow: 0 15px 50px rgba(0,0,0,0.7); border: 1px solid #333;">
+
+        <div style="text-align: center; margin-bottom: 30px;">
+            <h2 style="margin: 0; color: #bb86fc; font-weight: 300; letter-spacing: 1px; text-transform: uppercase; font-size: 20px;">
+                Assign Subject
+            </h2>
+            <p style="color: #888; font-size: 13px; margin-top: 8px;">
+                Staff: <span style="color: #03dac6; font-weight: bold;"></span>
+            </p>
+        </div>
+
+        <form action="/myapp/assign_subject_post/" method="POST">
+            {% csrf_token %}
+
+            <input type="hidden" name="staff_id" value="101">
+
+            <div style="margin-bottom: 30px;">
+                <label for="subject" style="display: block; margin-bottom: 12px; color: #b0b0b0; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; font-weight: bold;">
+                    Select Subject
+                </label>
+                <div style="position: relative;">
+                    <select id="subject" name="subject_id" required
+                        style="width: 100%; padding: 14px; background: #2c2c2c; border: 2px solid #333; border-radius: 10px; color: #fff; outline: none; appearance: none; cursor: pointer; font-size: 15px;">
+                        <option value="">-- Select Subject --</option>
+                        {% for i in data %}
+                        <option value="{{ i.id }}">{{ i.subject_name }}</option>
+                        {% endfor %}
+                    </select>
+                    <div style="position: absolute; right: 15px; top: 18px; pointer-events: none; color: #03dac6;">
+                        ▼
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit"
+                style="width: 100%; padding: 15px; background: #03dac6; border: none; border-radius: 50px; color: #000; font-weight: bold; cursor: pointer; text-transform: uppercase; font-size: 14px; box-shadow: 0 10px 20px rgba(3, 218, 198, 0.2); transition: transform 0.2s ease;">
+                Assign Subject
+            </button>
+
+        </form>
+
+        <div style="text-align: center; margin-top: 25px;">
+            <a href="/myapp/view_staff/" style="color: #888; text-decoration: none; font-size: 13px; border-bottom: 1px solid transparent; transition: border 0.3s;">
+                &larr; Cancel and Go Back
+            </a>
+        </div>
+
+    </div>
+
+</body>
+</html>

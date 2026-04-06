@@ -1,0 +1,235 @@
+{#<!DOCTYPE html>#}
+{#<html lang="en">#}
+{#<head>#}
+{#    <meta charset="UTF-8">#}
+{#    <meta name="viewport" content="width=device-width, initial-scale=1.0">#}
+{#    <title>Add Staff - Modern Profile UI</title>#}
+{#</head>#}
+{#<body style="font-family: 'Segoe UI', Arial, sans-serif; background-color: #121212; color: #e0e0e0; margin: 0; padding: 20px; display: flex; justify-content: center; align-items: center; min-height: 100vh;">#}
+{##}
+{#    <div style="background-color: #1e1e1e; width: 100%; max-width: 650px; padding: 40px; border-radius: 20px; box-shadow: 0 15px 50px rgba(0,0,0,0.7); border: 1px solid #333;">#}
+{##}
+{#        <h2 style="margin: 0 0 30px 0; color: #ffffff; text-align: center; font-weight: 300; letter-spacing: 1px;">STAFF REGISTRATION FORM</h2>#}
+{##}
+{#        <form action="/myapp/add_staff_post/" method="POST" enctype="multipart/form-data">#}
+{#{% csrf_token %}#}
+{#            <div style="text-align: center; margin-bottom: 30px; position: relative;">#}
+{#                <div style="width: 120px; height: 120px; background-color: #2c2c2c; border-radius: 50%; border: 3px solid #bb86fc; margin: 0 auto; display: flex; align-items: center; justify-content: center; overflow: hidden; position: relative;">#}
+{#                    <svg viewBox="0 0 24 24" width="60" height="60" fill="#444">#}
+{#                        <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>#}
+{#                    </svg>#}
+{#                    <input type="file" name="image" required style="position: absolute; width: 100%; height: 100%; opacity: 0; cursor: pointer;">#}
+{#                </div>#}
+{#                <p style="font-size: 12px; color: #bb86fc; margin-top: 10px;">Click circle to upload photo</p>#}
+{#            </div>#}
+{##}
+{#            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">#}
+{##}
+{#                <div>#}
+{#                    <label style="color: #888; font-size: 12px; text-transform: uppercase;">Full Name</label>#}
+{#                    <input type="text" name="name" placeholder="Staff Name" required style="width: 100%; padding: 12px 0; background: transparent; border: none; border-bottom: 2px solid #333; color: #fff; outline: none;">#}
+{#                </div>#}
+{##}
+{#                <div>#}
+{#                    <label style="color: #888; font-size: 12px; text-transform: uppercase;">Phone</label>#}
+{#                    <input type="tel" name="phone" placeholder="+91..." required style="width: 100%; padding: 12px 0; background: transparent; border: none; border-bottom: 2px solid #333; color: #fff; outline: none;">#}
+{#                </div>#}
+{##}
+{#                <div>#}
+{#                    <label style="color: #888; font-size: 12px; text-transform: uppercase;">Email</label>#}
+{#                    <input type="email" name="email" placeholder="email@college.edu" required style="width: 100%; padding: 12px 0; background: transparent; border: none; border-bottom: 2px solid #333; color: #fff; outline: none;">#}
+{#                </div>#}
+{##}
+{#                <div>#}
+{#                    <label style="color: #888; font-size: 12px; text-transform: uppercase;">Qualification</label>#}
+{#                    <input type="text" name="qualification" placeholder="PhD, M.Sc" required style="width: 100%; padding: 12px 0; background: transparent; border: none; border-bottom: 2px solid #333; color: #fff; outline: none;">#}
+{#                </div>#}
+{##}
+{#                <div>#}
+{#                    <label style="color: #888; font-size: 12px; text-transform: uppercase;">Gender</label>#}
+{#                    <select name="gender" style="width: 100%; padding: 12px 0; background: transparent; border: none; border-bottom: 2px solid #333; color: #fff; outline: none;">#}
+{#                        <option style="background: #1e1e1e;">Male</option>#}
+{#                        <option style="background: #1e1e1e;">Female</option>#}
+{#                    </select>#}
+{#                </div>#}
+{##}
+{#                <div>#}
+{#    <label class="form-label">Department</label>#}
+{#    <select name="department" class="form-label" required>#}
+{#        <option value="">-- Select Department --</option>#}
+{#        {% for i in data %}#}
+{#            <option value="{{ i.id }}">{{ i.department_name }}</option>#}
+{#        {% endfor %}#}
+{#    </select>#}
+{#</div>#}
+{##}
+{##}
+{#                <div>#}
+{#                    <label style="color: #888; font-size: 12px; text-transform: uppercase;">Username</label>#}
+{#                    <input type="text" name="username" placeholder="Login ID" required style="width: 100%; padding: 12px 0; background: transparent; border: none; border-bottom: 2px solid #333; color: #03dac6; outline: none;">#}
+{#                </div>#}
+{##}
+{#                <div>#}
+{#                    <label style="color: #888; font-size: 12px; text-transform: uppercase;">Password</label>#}
+{#                    <input type="password" name="password" placeholder="••••••••" required style="width: 100%; padding: 12px 0; background: transparent; border: none; border-bottom: 2px solid #333; color: #fff; outline: none;">#}
+{#                </div>#}
+{#            </div>#}
+{##}
+{#            <button type="submit" style="width: 100%; margin-top: 40px; padding: 15px; background: #03dac6; border: none; border-radius: 50px; color: #000; font-weight: bold; cursor: pointer; text-transform: uppercase; font-size: 14px; box-shadow: 0 10px 20px rgba(3, 218, 198, 0.2);">#}
+{#                Add#}
+{#            </button>#}
+{##}
+{#        </form>#}
+{#    </div>#}
+{##}
+{#</body>#}
+{#</html>#}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Staff - Modern Profile UI</title>
+</head>
+
+<body style="font-family: 'Segoe UI', Arial, sans-serif; background-color: #121212; color: #e0e0e0; margin: 0; padding: 20px; display: flex; justify-content: center; align-items: center; min-height: 100vh;">
+
+<div style="background-color: #1e1e1e; width: 100%; max-width: 650px; padding: 40px; border-radius: 20px; box-shadow: 0 15px 50px rgba(0,0,0,0.7); border: 1px solid #333;">
+
+    <h2 style="margin: 0 0 30px 0; color: #ffffff; text-align: center; font-weight: 300; letter-spacing: 1px;">
+        STAFF REGISTRATION FORM
+    </h2>
+
+    <form action="/myapp/add_staff_post/" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <!-- PHOTO SECTION -->
+        <div style="text-align: center; margin-bottom: 30px;">
+            <label style="cursor: pointer;">
+                <div style="
+                    width: 120px;
+                    height: 120px;
+                    background-color: #2c2c2c;
+                    border-radius: 50%;
+                    border: 3px solid #bb86fc;
+                    margin: 0 auto;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    overflow: hidden;
+                    position: relative;
+                ">
+
+                    <!-- Preview Image -->
+                    <img id="photoPreview"
+                         style="display:none; width:100%; height:100%; object-fit:cover;">
+
+                    <!-- Default Icon -->
+                    <svg id="defaultIcon" viewBox="0 0 24 24" width="60" height="60" fill="#555">
+                        <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                    </svg>
+                </div>
+
+                <input type="file"
+                       name="image"
+                       accept="image/*"
+                       required
+                       onchange="previewPhoto(event)"
+                       style="display:none;">
+            </label>
+
+            <p style="font-size: 12px; color: #bb86fc; margin-top: 10px;">
+                Click circle to upload photo
+            </p>
+        </div>
+
+        <!-- FORM FIELDS -->
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+
+            <div>
+                <label style="color:#888;font-size:12px;text-transform:uppercase;">Full Name</label>
+                <input type="text" name="name" required
+                       style="width:100%;padding:12px 0;background:transparent;border:none;border-bottom:2px solid #333;color:#fff;">
+            </div>
+
+            <div>
+                <label style="color:#888;font-size:12px;text-transform:uppercase;">Phone</label>
+                <input type="tel" name="phone" required
+                       style="width:100%;padding:12px 0;background:transparent;border:none;border-bottom:2px solid #333;color:#fff;">
+            </div>
+
+            <div>
+                <label style="color:#888;font-size:12px;text-transform:uppercase;">Email</label>
+                <input type="email" name="email" required
+                       style="width:100%;padding:12px 0;background:transparent;border:none;border-bottom:2px solid #333;color:#fff;">
+            </div>
+
+            <div>
+                <label style="color:#888;font-size:12px;text-transform:uppercase;">Qualification</label>
+                <input type="text" name="qualification" required
+                       style="width:100%;padding:12px 0;background:transparent;border:none;border-bottom:2px solid #333;color:#fff;">
+            </div>
+
+            <div>
+                <label style="color:#888;font-size:12px;text-transform:uppercase;">Gender</label>
+                <select name="gender"
+                        style="width:100%;padding:12px 0;background:transparent;border:none;border-bottom:2px solid #333;color:#fff;">
+                    <option style="background:#1e1e1e;">Male</option>
+                    <option style="background:#1e1e1e;">Female</option>
+                </select>
+            </div>
+
+            <div>
+                <label style="color:#888;font-size:12px;text-transform:uppercase;">Department</label>
+                <select name="department" required
+                        style="width:100%;padding:12px 0;background:transparent;border:none;border-bottom:2px solid #333;color:#000000;">
+                    <option value="">-- Select Department --</option>
+                    {% for i in data %}
+                        <option value="{{ i.id }}">{{ i.department_name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div>
+                <label style="color:#888;font-size:12px;text-transform:uppercase;">Username</label>
+                <input type="text" name="username" required
+                       style="width:100%;padding:12px 0;background:transparent;border:none;border-bottom:2px solid #333;color:#03dac6;">
+            </div>
+
+            <div>
+                <label style="color:#888;font-size:12px;text-transform:uppercase;">Password</label>
+                <input type="password" name="password" required
+                       style="width:100%;padding:12px 0;background:transparent;border:none;border-bottom:2px solid #333;color:#fff;">
+            </div>
+
+        </div>
+
+        <!-- SUBMIT -->
+        <button type="submit"
+                style="width:100%;margin-top:40px;padding:15px;background:#03dac6;border:none;border-radius:50px;color:#000;font-weight:bold;text-transform:uppercase;cursor:pointer;">
+            Add Staff
+        </button>
+
+    </form>
+</div>
+
+<!-- PHOTO PREVIEW SCRIPT -->
+<script>
+function previewPhoto(event) {
+    const file = event.target.files[0];
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function () {
+            document.getElementById('photoPreview').src = reader.result;
+            document.getElementById('photoPreview').style.display = 'block';
+            document.getElementById('defaultIcon').style.display = 'none';
+        };
+        reader.readAsDataURL(file);
+    }
+}
+</script>
+
+</body>
+</html>

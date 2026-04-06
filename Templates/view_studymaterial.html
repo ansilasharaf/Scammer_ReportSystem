@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>View Study Material</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    background: #0f172a;
+    color: #e5e7eb;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Main container */
+.container {
+    width: 950px;
+    background: #020617;
+    border-radius: 14px;
+    padding: 30px;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.7);
+    border: 1px solid #1e293b;
+}
+
+/* Header Area */
+.header-area {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    border-bottom: 1px solid #1e293b;
+    padding-bottom: 15px;
+}
+
+h2 {
+    color: #60a5fa;
+    margin: 0;
+    font-size: 24px;
+    letter-spacing: 0.5px;
+}
+
+/* Dashboard Button */
+.btn-dashboard {
+    background-color: #03dac6;
+    color: #000;
+    padding: 8px 20px;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 13px;
+    box-shadow: 0 4px 12px rgba(3, 218, 198, 0.2);
+    transition: all 0.3s ease;
+}
+
+.btn-dashboard:hover {
+    background-color: #01bfa5;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 15px rgba(3, 218, 198, 0.3);
+}
+
+/* Table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+th {
+    color: #94a3b8;
+    border-bottom: 2px solid #1e293b;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 1px;
+    padding: 15px 10px;
+    text-align: left;
+}
+
+td {
+    padding: 15px 10px;
+    border-bottom: 1px solid #1e293b;
+    color: #e5e7eb;
+    font-size: 14px;
+}
+
+/* REDESIGNED CHAT BUTTON */
+.chat-btn {
+    background: #bb86fc;
+    color: #000;
+    text-decoration: none;
+    padding: 6px 18px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 12px;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(187, 134, 252, 0.2);
+}
+
+.chat-btn:hover {
+    background: #d7b7fd;
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(187, 134, 252, 0.4);
+}
+
+/* Row Hover Effect */
+tbody tr:hover {
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.material-text {
+    color: #94a3b8;
+    font-style: italic;
+    max-width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <div class="header-area">
+        <h2>Study Materials</h2>
+        <a href="/myapp/studenthome/" class="btn-dashboard">
+            &larr; Dashboard
+        </a>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Subject</th>
+                <th>Date</th>
+                <th>Title</th>
+                <th>Material</th>
+                <th style="text-align: center;">AI Assistant</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for i in data %}
+            <tr>
+                <td style="color: #60a5fa; font-weight: bold;">{{ forloop.counter }}</td>
+                <td>{{ i.ASSIGN_SUBJECT_TO_STAFF.SUBJECT.subject_name }}</td>
+                <td style="color: #94a3b8;">{{ i.date }}</td>
+                <td style="font-weight: 500;">{{ i.title }}</td>
+                <td class="material-text">{{ i.study_material }}</td>
+                <td style="text-align: center;">
+                    <a href="/myapp/load_chatbot/{{ i.id }}" class="chat-btn">
+                        <span>💬</span> Chat
+                    </a>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="6" style="text-align: center; padding: 40px; color: #64748b;">
+                    No study materials uploaded yet.
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>

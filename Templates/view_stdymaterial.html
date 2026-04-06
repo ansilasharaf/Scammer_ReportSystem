@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Study Material - Dark Mode</title>
+</head>
+<body style="font-family: 'Segoe UI', Arial, sans-serif; background-color: #121212; color: #e0e0e0; padding: 40px; margin: 0;">
+
+    <div style="max-width: 1100px; margin: auto;">
+
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
+            <h2 style="color: #ffffff; margin: 0; text-transform: uppercase; letter-spacing: 1.5px; border-left: 5px solid #bb86fc; padding-left: 15px;">
+                Study Material Repository
+            </h2>
+
+        </div>
+
+        <table style="width: 100%; border-collapse: collapse; background-color: #1e1e1e; box-shadow: 0 10px 30px rgba(0,0,0,0.5); border-radius: 12px; overflow: hidden; border: 1px solid #333;">
+            <thead>
+                <tr style="background-color: #2d2d2d; color: #03dac6; text-align: left;">
+                    <th style="padding: 18px 15px; border-bottom: 2px solid #333; font-size: 13px;">SI NO.</th>
+                    <th style="padding: 18px 15px; border-bottom: 2px solid #333; font-size: 13px;">TITLE</th>
+                    <th style="padding: 18px 15px; border-bottom: 2px solid #333; font-size: 13px;">SUBJECT</th>
+                    <th style="padding: 18px 15px; border-bottom: 2px solid #333; font-size: 13px;">STAFF</th>
+                    <th style="padding: 18px 15px; border-bottom: 2px solid #333; font-size: 13px;">MATERIAL</th>
+                    <th style="padding: 18px 15px; border-bottom: 2px solid #333; font-size: 13px;">UPLOAD DATE</th>
+{#                    <th style="padding: 18px 15px; border-bottom: 2px solid #333; font-size: 13px; text-align: center;">ACTION</th>#}
+                </tr>
+            </thead>
+            <tbody>
+            {% for i in data %}
+                <tr style="border-bottom: 1px solid #333;">
+                    <td style="padding: 15px; color: #888;">{{ forloop.counter }}</td>
+                    <td style="padding: 15px; color: #ffffff; font-weight: 500;">{{ i.title }}</td>
+                    <td style="padding: 15px;">{{ i.ASSIGN_SUBJECT_TO_STAFF.SUBJECT.subject_name }}</td>
+                    <td style="padding: 15px; color: #bb86fc;">{{ i.ASSIGN_SUBJECT_TO_STAFF.STAFF.name }}</td>
+                    <td style="padding: 15px;">
+                        <a href="{{ i.study_material.url }}" target="_blank" style="color: #03dac6; text-decoration: none; font-size: 13px; display: flex; align-items: center;">Study Material
+                        </a>
+                    </td>
+                    <td style="padding: 15px; font-size: 13px; color: #888;">{{ i.date }}</td>
+{#                    <td style="padding: 15px; text-align: center;">#}
+{#                        <a href="/myapp/view_review/" style="background-color: #bb86fc; color: #000; padding: 6px 15px; text-decoration: none; border-radius: 50px; font-size: 12px; font-weight: bold; transition: 0.3s;">#}
+{#                            Review#}
+{#                        </a>#}
+{#                    </td>#}
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+    </div>
+
+</body>
+</html>

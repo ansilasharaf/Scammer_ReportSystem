@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Shared Links</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+html, body {
+    margin: 0;
+    height: 100%;
+    background: #0f172a;
+    color: #e5e7eb;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#abcd{
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Container */
+.container {
+    width: 900px;
+    background: #020617;
+    border-radius: 14px;
+    padding: 25px;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.7);
+}
+
+/* Title */
+h2 {
+    text-align: center;
+    color: #60a5fa;
+    margin-bottom: 20px;
+}
+
+/* Card list */
+.list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.card {
+    border: 1px solid #1e293b;
+    border-radius: 12px;
+    padding: 16px 20px;
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto;
+    align-items: center;
+    gap: 15px;
+}
+
+.card:hover {
+    border-color: #3b82f6;
+}
+
+/* Sl No */
+.sino {
+    font-size: 16px;
+    font-weight: bold;
+    color: #93c5fd;
+    text-align: center;
+}
+
+/* Content */
+.info .title {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.info .date {
+    font-size: 13px;
+    color: #94a3b8;
+}
+
+
+.info .status {
+    font-size: 13px;
+    color: #94a3b8;
+}
+
+/* Link */
+a.open-link {
+    color: #3b82f6;
+    font-weight: 600;
+    text-decoration: none;
+    text-align: center;
+}
+
+a.open-link:hover {
+    text-decoration: underline;
+}
+
+/* Status badge */
+.status {
+    text-align: center;
+    padding: 6px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.active {
+    background: rgba(34,197,94,0.15);
+    color: #22c55e;
+}
+
+.inactive {
+    background: rgba(248,113,113,0.15);
+    color: #f87171;
+
+
+
+/* Messages Container */
+.messages-container {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Base Alert Style */
+.alert {
+    padding: 15px 20px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+    animation: slideIn 0.3s ease-out;
+}
+
+/* Success Green (matches your active status) */
+.alert.success {
+    background: #064e3b;
+    border: 1px solid #10b981;
+    color: #d1fae5;
+}
+
+/* Error/Warning Red */
+.alert.error, .alert.warning {
+    background: #451a1a;
+    border: 1px solid #f87171;
+    color: #fee2e2;
+}
+
+/* Close Button */
+.close-btn {
+    background: none;
+    border: none;
+    color: inherit;
+    font-size: 20px;
+    cursor: pointer;
+    margin-left: 15px;
+    line-height: 1;
+}
+
+/* Animation */
+@keyframes slideIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h2>Shared Links</h2>
+
+
+{% if messages %}
+    <div class="messages-container">
+        {% for message in messages %}
+            <div class="alert {{ message.tags }}">
+                <span class="message-text">{{ message }}</span>
+                <button class="close-btn" onclick="this.parentElement.style.display='none';">&times;</button>
+            </div>
+        {% endfor %}
+    </div>
+{% endif %}
+
+<div id="abcd">
+
+{#    <a href="/myapp/share_link/">Share link</a>#}
+    <a href="/myapp/home/">Back</a>
+
+</div>
+    <div class="list">
+{% for i in data %}
+        <div class="card">
+            <div class="sino">{{ forloop.counter }}</div>
+            <div class="info">
+                <div class="title">{{ i.title }}</div>
+                <div class="date">{{ i.date }}</div>
+{#                <div class="status">{{ i.status }}</div>#}
+            </div>
+            <div>{{ i.status }}</div>
+            <a href="{{ i.link }}" class="open-link">Open</a>
+{#            <div class="status active">Active</div>#}
+{#            <a href="/myapp/edit_link/{{ i.id }}" style="color: #bb86fc; text-decoration: none; font-weight: bold; margin-right: 15px; font-size: 14px;">Edit</a>#}
+            <a href="/myapp/view_review/{{ i.id }}" style="color: #bb86fc; text-decoration: none; font-weight: bold; margin-right: 15px; font-size: 14px;">Review</a>
+            <a href="/myapp/block_link/{{ i.id }}" style="color: #bb86fc; text-decoration: none; font-weight: bold; margin-right: 15px; font-size: 14px;">block</a>
+
+
+        </div>
+
+{% endfor %}
+    </div>
+</div>
+
+</body>
+</html>

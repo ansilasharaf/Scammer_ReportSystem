@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Staff - Dark Mode</title>
+</head>
+
+<body style="font-family: 'Segoe UI', Arial, sans-serif; background-color: #121212; color: #e0e0e0; margin: 0; padding: 20px; display: flex; justify-content: center; align-items: center; min-height: 100vh;">
+
+<div style="background-color: #1e1e1e; width: 100%; max-width: 650px; padding: 40px; border-radius: 20px; box-shadow: 0 15px 50px rgba(0,0,0,0.7); border: 1px solid #333;">
+
+    <h2 style="margin-bottom: 30px; color: #bb86fc; text-align: center;">Edit Staff Details</h2>
+
+    <form action="/myapp/edit_staff_post/" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="hidden" name="staff_id" value="{{ data.id }}">
+
+        <!-- PROFILE IMAGE -->
+        <div style="text-align: center; margin-bottom: 30px;">
+            <div style="
+                width: 120px;
+                height: 120px;
+                border-radius: 50%;
+                margin: auto;
+                overflow: hidden;
+                border: 3px solid #03dac6;
+                position: relative;
+            ">
+                <img src="{{ data.image.url }}"
+                     style="width: 100%; height: 100%; object-fit: cover;">
+
+                <input type="file" name="image"
+                       style="position:absolute; inset:0; opacity:0; cursor:pointer;">
+            </div>
+            <p style="font-size: 12px; color: #888;">Click image to change</p>
+        </div>
+
+        <!-- FORM FIELDS -->
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+
+            <div>
+                <label style="color:#03dac6;">Full Name</label>
+                <input type="text" name="name" value="{{ data.name }}" required
+                       style="width:100%; background:transparent; border:none; border-bottom:2px solid #333; color:#fff;">
+            </div>
+
+            <div>
+                <label style="color:#03dac6;">Phone</label>
+                <input type="text" name="phone" value="{{ data.phone }}" required
+                       style="width:100%; background:transparent; border:none; border-bottom:2px solid #333; color:#fff;">
+            </div>
+
+            <div>
+                <label style="color:#03dac6;">Email</label>
+                <input type="email" name="email" value="{{ data.email }}" required
+                       style="width:100%; background:transparent; border:none; border-bottom:2px solid #333; color:#fff;">
+            </div>
+
+            <div>
+                <label style="color:#03dac6;">Qualification</label>
+                <input type="text" name="qualification" value="{{ data.qualification }}" required
+                       style="width:100%; background:transparent; border:none; border-bottom:2px solid #333; color:#fff;">
+            </div>
+
+            <!-- GENDER -->
+            <div>
+                <label style="color:#03dac6;">Gender</label>
+                <select name="gender" style="width:100%; background:#1e1e1e; color:#fff;">
+                    <option value="Male" {% if data.gender == "Male" %}selected{% endif %}>Male</option>
+                    <option value="Female" {% if data.gender == "Female" %}selected{% endif %}>Female</option>
+                </select>
+            </div>
+
+            <!-- DEPARTMENT -->
+            <div>
+                <label style="color:#03dac6;">Department</label>
+                <select name="department" required style="width:100%; background:#1e1e1e; color:#fff;">
+                    <option value="">-- Select Department --</option>
+                    {% for i in data2 %}
+                        <option value="{{ i.id }}"
+                            {% if i.id == data.DEPARTMENT.id %}selected{% endif %}>
+                            {{ i.department_name }}
+                        </option>
+                    {% endfor %}
+                </select>
+            </div>
+
+        </div>
+
+        <!-- BUTTON -->
+        <button type="submit"
+                style="width:100%; margin-top:30px; padding:15px; background:#bb86fc; border:none; border-radius:50px; font-weight:bold;">
+            Update Staff
+        </button>
+
+    </form>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Subject - Dark Mode</title>
+</head>
+<body style="font-family: 'Segoe UI', Arial, sans-serif; background-color: #121212; margin: 0; display: flex; justify-content: center; align-items: center; height: 100vh; color: #e0e0e0;">
+
+    <div style="background-color: #1e1e1e; width: 100%; max-width: 450px; padding: 40px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.6); border: 1px solid #333;">
+
+        <h2 style="margin-top: 0; color: #bb86fc; text-align: center; margin-bottom: 30px; font-size: 24px; border-bottom: 2px solid #bb86fc; display: inline-block; padding-bottom: 8px; text-transform: uppercase; letter-spacing: 1px;">
+            Edit Subject
+        </h2>
+
+        <form action="/myapp/edit_subject_post/" method="POST">
+            {% csrf_token %}
+
+            <input type="hidden" name="subject_id" value="">
+
+            <div style="margin-bottom: 20px;">
+                <label for="sub_name" style="display: block; margin-bottom: 10px; font-weight: 600; color: #b0b0b0; font-size: 14px;">
+                    Subject Name
+                </label>
+                <input type="text" id="sub_name" name="sub_name" value="{{ data.subject_name }}" required
+                    style="width: 100%; padding: 12px 15px; border: 1px solid #444; border-radius: 8px; background-color: #2c2c2c; color: #ffffff; font-size: 16px; box-sizing: border-box; outline: none; border-left: 4px solid #bb86fc;">
+            </div>
+
+            <div style="margin-bottom: 20px;">
+                <label for="sub_code" style="display: block; margin-bottom: 10px; font-weight: 600; color: #b0b0b0; font-size: 14px;">
+                    Subject Code
+                </label>
+                <input type="text" id="sub_code" name="sub_code" value="{{ data.subject_code }}" required
+                    style="width: 100%; padding: 12px 15px; border: 1px solid #444; border-radius: 8px; background-color: #2c2c2c; color: #ffffff; font-size: 16px; box-sizing: border-box; outline: none; border-left: 4px solid #03dac6;">
+            </div>
+
+            <div style="margin-bottom: 30px;">
+                <label for="sem" style="display: block; margin-bottom: 10px; font-weight: 600; color: #b0b0b0; font-size: 14px;">
+                    Semester
+                </label>
+                <select id="sem" name="sem"  value="{{data.sem }}"required
+                    style="width: 100%; padding: 12px 15px; border: 1px solid #444; border-radius: 8px; background-color: #2c2c2c; color: #ffffff; font-size: 16px; box-sizing: border-box; outline: none; cursor: pointer;">
+                    <option value="1">Semester 1</option>
+                    <option value="2">Semester 2</option>
+                    <option value="3">Semester 3</option>
+                    <option value="4" selected>Semester 4</option>
+                    <option value="5">Semester 5</option>
+                    <option value="6">Semester 6</option>
+                    <option value="7">Semester 7</option>
+                    <option value="8">Semester 8</option>
+                </select>
+            </div>
+
+            <button type="submit"
+                style="width: 100%; background-color: #bb86fc; color: #000; padding: 14px; border: none; border-radius: 8px; font-size: 16px; font-weight: bold; cursor: pointer; text-transform: uppercase; transition: background 0.3s ease; box-shadow: 0 4px 15px rgba(187, 134, 252, 0.3);">
+                Edit Subject
+            </button>
+
+        </form>
+
+    </div>
+
+</body>
+</html>

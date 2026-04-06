@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Share Link</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    background: #0f172a;
+    color: #e5e7eb;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Card */
+.card {
+    width: 420px;
+    background: #020617;
+    padding: 30px;
+    border-radius: 14px;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.7);
+}
+
+/* Title */
+h2 {
+    text-align: center;
+    color: #60a5fa;
+    margin-bottom: 20px;
+}
+
+label {
+    font-size: 13px;
+    color: #cbd5f5;
+    display: block;
+    margin-top: 15px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 6px;
+    background: #020617;
+    border: 1px solid #1e293b;
+    border-radius: 6px;
+    color: #e5e7eb;
+    font-size: 14px;
+}
+
+input:focus {
+    outline: none;
+    border-color: #3b82f6;
+}
+
+/* Button */
+button {
+    width: 100%;
+    margin-top: 25px;
+    padding: 12px;
+    background: #2563eb;
+    border: none;
+    border-radius: 6px;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #1d4ed8;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+    <h2>Share Link</h2>
+
+    <form action="/myapp/share_link_post/" method="post">
+        <label>Title</label>
+        <input type="text" placeholder="Enter title" name="title" required>
+
+        <label>Link</label>
+        <input type="url" placeholder="https://example.com" name="link" required>
+
+        <button type="submit">Share</button>
+    </form>
+</div>
+
+</body>
+</html>

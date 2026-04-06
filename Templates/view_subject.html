@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Subjects - Dark Mode</title>
+    <style>
+        /* Hover effects for a better UX */
+        .btn-add:hover {
+            background-color: #01bfa5 !important; /* Slightly darker teal */
+            transform: translateY(-1px);
+            box-shadow: 0 6px 20px rgba(3, 218, 198, 0.3) !important;
+        }
+        .action-link:hover {
+            text-decoration: underline !important;
+            opacity: 0.8;
+        }
+        tr:hover {
+            background-color: #252525;
+        }
+    </style>
+</head>
+<body style="font-family: 'Segoe UI', Arial, sans-serif; background-color: #121212; color: #e0e0e0; padding: 40px; margin: 0;">
+
+    <div style="max-width: 1000px; margin: auto;">
+
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
+            <div>
+                <h2 style="color: #ffffff; margin: 0; text-transform: uppercase; letter-spacing: 1.5px; border-left: 5px solid #03dac6; padding-left: 15px;">
+                    Subject List
+                </h2>
+                <p style="color: #03dac6; margin: 5px 0 0 15px; font-size: 14px;">Academic Management</p>
+            </div>
+
+            <a href="/myapp/add_subject/" class="btn-add" style="
+                background-color: #03dac6;
+                color: #000000;
+                padding: 10px 22px;
+                text-decoration: none;
+                border-radius: 30px;
+                font-size: 14px;
+                font-weight: bold;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                display: inline-flex;
+                align-items: center;
+                transition: all 0.3s ease;
+                box-shadow: 0 4px 12px rgba(3, 218, 198, 0.2);
+            ">
+                <span style="font-size: 20px; margin-right: 8px; line-height: 0;">+</span> Add Subject
+            </a>
+        </div>
+
+        <table style="width: 100%; border-collapse: collapse; background-color: #1e1e1e; box-shadow: 0 10px 30px rgba(0,0,0,0.5); border-radius: 12px; overflow: hidden; border: 1px solid #333;">
+            <thead>
+                <tr style="background-color: #2d2d2d; color: #bb86fc; text-align: left;">
+                    <th style="padding: 18px 15px; border-bottom: 2px solid #333; font-size: 13px; text-transform: uppercase;">SI NO.</th>
+                    <th style="padding: 18px 15px; border-bottom: 2px solid #333; font-size: 13px; text-transform: uppercase;">Subject Name</th>
+                    <th style="padding: 18px 15px; border-bottom: 2px solid #333; font-size: 13px; text-transform: uppercase;">Code</th>
+                    <th style="padding: 18px 15px; border-bottom: 2px solid #333; font-size: 13px; text-transform: uppercase;">Sem</th>
+                    <th style="padding: 18px 15px; border-bottom: 2px solid #333; font-size: 13px; text-transform: uppercase; text-align: center;">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in data %}
+                <tr style="border-bottom: 1px solid #333; transition: background 0.2s;">
+                    <td style="padding: 15px; font-weight: bold; color: #b0b0b0;">{{ forloop.counter }}</td>
+                    <td style="padding: 15px; color: #ffffff;">{{ i.subject_name }}</td>
+                    <td style="padding: 15px; color: #03dac6; font-family: monospace; font-size: 15px;">{{ i.subject_code }}</td>
+                    <td style="padding: 15px;">{{ i.sem }}</td>
+                    <td style="padding: 15px; text-align: center;">
+                        <a href="/myapp/edit_subject/{{ i.id }}" class="action-link" style="color: #bb86fc; text-decoration: none; font-weight: bold; margin-right: 20px; font-size: 14px;">Edit</a>
+                        <a href="/myapp/delete_subject/{{ i.id }}" class="action-link" style="color: #cf6679; text-decoration: none; font-weight: bold; font-size: 14px;" onclick="return confirm('Remove this subject?')">Delete</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <div style="margin-top: 25px; display: flex; justify-content: space-between; align-items: center;">
+            <a href="/myapp/view_course/{{ course }}" style="color: #b0b0b0; text-decoration: none; font-size: 14px; display: flex; align-items: center;">
+                <span style="margin-right: 5px;">&larr;</span> Back to Courses
+            </a>
+            <span style="color: #666; font-size: 12px; font-style: italic;">Showing all subjects for the selected course</span>
+        </div>
+
+    </div>
+
+</body>
+</html>

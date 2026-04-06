@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Verification Portal - Dark Mode</title>
+</head>
+<body style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #121212; color: #e0e0e0; padding: 20px; margin: 0;">
+
+    <h2 style="text-align: center; color: #ffffff; margin-bottom: 25px;">Student Verification Dashboard</h2>
+
+    <table style="width: 100%; border-collapse: collapse; background-color: #1e1e1e; box-shadow: 0 4px 15px rgba(0,0,0,0.5); border-radius: 8px; overflow: hidden; border: 1px solid #333;">
+        <thead>
+            <tr style="background-color: #333333; color: #bb86fc; text-transform: uppercase; font-size: 14px;">
+                <th style="padding: 15px; text-align: left; border-bottom: 2px solid #444;">SI No.</th>
+                <th style="padding: 15px; text-align: left; border-bottom: 2px solid #444;">Image</th>
+                <th style="padding: 15px; text-align: left; border-bottom: 2px solid #444;">Name</th>
+                <th style="padding: 15px; text-align: left; border-bottom: 2px solid #444;">Phone</th>
+
+                <th style="padding: 15px; text-align: left; border-bottom: 2px solid #444;">Email</th>
+                <th style="padding: 15px; text-align: left; border-bottom: 2px solid #444;">Course</th>
+                <th style="padding: 15px; text-align: left; border-bottom: 2px solid #444;">Sem</th>
+                <th style="padding: 15px; text-align: left; border-bottom: 2px solid #444;">Gender</th>
+                <th style="padding: 15px; text-align: center; border-bottom: 2px solid #444;">Action</th>
+            </tr>
+        </thead>
+
+        {% for i in data %}
+        <tbody>
+            <tr style="border-bottom: 1px solid #333; transition: background 0.3s;">
+                <td style="padding: 12px 15px;">{{ forloop.counter }}</td>
+                <td style="padding: 12px 15px;">
+                    <img src="{{ i.image.url }}" alt="Student" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover; border: 1px solid #444;"></td>
+                <td style="padding: 12px 15px;">{{ i.name }}</td>
+                <td style="padding: 12px 15px;">{{ i.phone }}</td>
+                <td style="padding: 12px 15px;">{{ i.email }}</td>
+                <td style="padding: 12px 15px;">{{ i.COURSE.course }}</td>
+                <td style="padding: 12px 15px;">{{ i.sem }}</td>
+                <td style="padding: 12px 15px;">{{ i.gender }}</td>
+                <td style="padding: 12px 15px; text-align: center;">
+                    {% if i.status == 'pending' %}
+                    <a href="/myapp/accept_student/{{ i.LOGIN.id }}" style="padding: 8px 16px; text-decoration: none; border-radius: 4px; font-size: 13px; font-weight: bold; margin-right: 5px; background-color: #03dac6; color: #000; display: inline-block;">Accept</a>
+                    <a href="/myapp/reject_student/{{ i.LOGIN.id }}" style="padding: 8px 16px; text-decoration: none; border-radius: 4px; font-size: 13px; font-weight: bold; background-color: #cf6679; color: #ffffff; display: inline-block;" onclick="return confirm('Are You Sure')">Reject</a>
+                    {% else %}
+                    {{ i.status }}
+                    {% endif %}
+
+                </td>
+            </tr>
+
+        </tbody>
+
+        {% endfor %}
+    </table>
+
+</body>
+</html>
