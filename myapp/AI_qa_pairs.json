@@ -1,0 +1,86 @@
+[
+  {
+    "question": "What are the two main ways classical medical research and the WHO definition approach the concept of health?",
+    "answer": "Classical medical research is traditionally disease-focused, defining health primarily as the absence of disease. In contrast, the World Health Organization (WHO) definition, adopted in 1948, posits health as a positive state of complete physical, mental, and social well-being, not merely the absence of disease or infirmity.",
+    "timestamp": "2026-01-03T10:07:19.123369",
+    "id": 1
+  },
+  {
+    "question": "How does the human microbiome relate to the current 'fashion' in scientific research, and what impact is it believed to have on health?",
+    "answer": "The human microbiome is a currently fashionable field of scientific inquiry, driven by novel DNA sequencing and bioinformatic tools. It is perceived as our 'second human genome,' contributing to human genetic variability and influencing health issues. The gut microbiome, in particular, has been associated with critical health aspects like obesity, healthy ageing, and cancer.",
+    "timestamp": "2026-01-03T10:07:19.123369",
+    "id": 2
+  },
+  {
+    "question": "According to the text, why do traditional medical doctors and textbooks often struggle with defining health?",
+    "answer": "Traditional medical doctors and textbooks largely focus on disease, making the definition of health an uninteresting or overlooked question for many in the field. Textbooks like Harrison's Principles of Internal Medicine contain extensive material on pathogens and diseases but lack a clear definition of health. This disease-centric perspective means that institutions like the US National Institutes of Health are sometimes humorously suggested to be renamed 'National Institutes of Diseases'.",
+    "timestamp": "2026-01-03T10:07:19.123369",
+    "id": 3
+  },
+  {
+    "question": "How does the etymology of the word 'health' in English and other Germanic languages, as well as Latin, reflect a positive concept?",
+    "answer": "The English 'health' derives from Old English 'hælth,' related to 'whole,' signifying completeness. Similarly, Germanic languages like German ('Heil') connect health with wholeness, happiness, and even salvation. In Latin, 'salus' means health, rescue, and wealth, stemming from 'salvus,' also meaning 'whole,' reinforcing the ancient notion of health as a state of completeness.",
+    "timestamp": "2026-01-03T10:07:19.123369",
+    "id": 4
+  },
+  {
+    "question": "What was the preferred view on health proposed at the 2009 Dutch conference, and what specific aspects did it encompass for physical, mental, and social health?",
+    "answer": "At the 2009 Dutch conference, the preferred view defined health as the ability to adapt and to self-manage. For physical health, this involved 'allostasis'—maintaining physiological homeostasis through changing circumstances. Mental health was defined by a sense of coherence, while social health included people's capacity to fulfill potentials and obligations, manage life, and participate in social activities.",
+    "timestamp": "2026-01-03T10:07:19.123369",
+    "id": 5
+  },
+  {
+    "question": "Explain the concept of 'salutogenesis' and its relevance to microbiological studies, as discussed in the text.",
+    "answer": "Salutogenesis refers to the process of 'becoming healthy,' contrasting with 'pathogenesis' (becoming ill). It advocates for research into the transition from a diseased state back to health, rather than solely focusing on the progression from health to disease. For microbiologists, this is particularly relevant in acute infectious diseases, where understanding the immune response leading to disease resolution has been instrumental in designing vaccine strategies.",
+    "timestamp": "2026-01-03T10:07:19.123369",
+    "id": 6
+  },
+  {
+    "question": "How do medical scoring systems like the Karnofsky and Apgar scores challenge or support the idea of health and disease as alternative 'plus' and 'minus' states?",
+    "answer": "Medical scoring systems like Karnofsky for cancer patients and Apgar for newborns support the idea of graded health and disease levels, rather than simple 'plus' or 'minus' states. These systems place health and disease within the same measurable category, allowing for a spectrum of conditions. While often skewed towards grading disease severity, they demonstrate the potential to quantify both states along a continuous scale.",
+    "timestamp": "2026-01-03T10:07:19.123369",
+    "id": 7
+  },
+  {
+    "question": "What major insights did the 2010 Global Burden of Disease (GBD) study provide regarding global life expectancy and mortality trends between 1970 and 2010?",
+    "answer": "The 2010 Global Burden of Disease (GBD) study, involving 486 scientists, revealed significant global health improvements. Between 1970 and 2010, global life expectancy at birth rose by 3–4 years every decade. The study also showed a decrease in mortality from communicable diseases, primarily due to ameliorations in diarrhoeal diseases, measles, and tetanus, while HIV/AIDS mortality increased.",
+    "timestamp": "2026-01-03T10:07:19.123369",
+    "id": 8
+  },
+  {
+    "question": "Define 'healthy life expectancy' as measured by the GBD 2010 study and provide an example contrasting it with overall life expectancy.",
+    "answer": "Healthy life expectancy, as used in the GBD 2010 study, is the number of years a person at a given age can expect to live in good health, accounting for age-specific mortality, morbidity, and functional health status. For instance, in 2010, Bangladeshi women had an average life expectancy of 71 years, but their healthy life expectancy was 59 years. This means they spent more than a decade living with poor health, despite their overall longevity.",
+    "timestamp": "2026-01-03T10:07:19.123369",
+    "id": 9
+  },
+  {
+    "question": "What are some of the key physiological declines observed by medical gerontologists as part of the ageing process?",
+    "answer": "Medical gerontologists observe ageing as a progressive decline in body structure and function. Key physiological declines include decreased lean body mass and muscle strength (sarcopenia), leading to increasing frailty. Other common observations are progressive demineralization of bones, memory decline and dementia, and a decline in sensory systems (vision, hearing, taste). Additionally, resting metabolic rate declines, and homeostasis pathways become less resistant to stress.",
+    "timestamp": "2026-01-03T10:07:19.123369",
+    "id": 10
+  },
+  {
+    "question": "Describe the concept of 'negligible senescence' and provide examples of organisms that exhibit this trait.",
+    "answer": "Negligible senescence is a biological concept where certain organisms do not show a measurable increase in mortality rate or a decrease in reproductive capability with increasing age after maturity. This contradicts conventional theories of ageing. Examples given in the text include lobsters and turtles, which have been reported to survive for many decades or even over 100 years without apparent loss of fertility or vigor.",
+    "timestamp": "2026-01-03T10:07:19.123369",
+    "id": 11
+  },
+  {
+    "question": "What was the central hypothesis of Fries' 1980 paper on 'Ageing, natural death, and the compression of morbidity,' and what measures did he suggest to achieve it?",
+    "answer": "Fries' central hypothesis was that human lifespan is fixed, and health improvements could lead to a 'compression of morbidity,' where the period of illness and disability at the end of life is shortened. He suggested focusing on chronic disease prevention over acute disease cure, emphasizing quality of life over duration. Practical measures included weight control, regular exercise, treating hypertension, and eliminating smoking and excessive alcohol consumption, alongside an equilibrated diet.",
+    "timestamp": "2026-01-03T10:07:19.123369",
+    "id": 12
+  },
+  {
+    "question": "How did the findings of the GBD 2010 study challenge or contradict Fries' model of 'compression of morbidity'?",
+    "answer": "The GBD 2010 study largely contradicted Fries' compression of morbidity model. It found clear evidence of an expansion, not compression, of morbidity, with Years Lived with Disability (YLD) rising significantly between 1990 and 2010. While healthy life expectancy increased, it did not rise faster than overall life expectancy, meaning the decrease in age-specific disability did not keep pace with increased survival, leading to more years lived in reduced health.",
+    "timestamp": "2026-01-03T10:07:19.123369",
+    "id": 13
+  },
+  {
+    "question": "Why is 'healthy ageing' considered a socio-economic necessity, according to the text?",
+    "answer": "Healthy ageing is deemed a socio-economic necessity because without it, national healthcare systems will struggle to manage the escalating costs associated with an increasing number of individuals suffering from various diseases and their sequelae. Achieving healthy ageing through preventive measures can reduce healthcare burdens and allow individuals to enjoy a greater quality of life for a longer period.",
+    "timestamp": "2026-01-03T10:07:19.123369",
+    "id": 14
+  }
+]
